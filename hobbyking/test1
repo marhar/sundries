@@ -1,0 +1,11 @@
+#!/usr/bin/python
+
+import hobbyking
+
+#ii=hobbyking.Item(21346)
+ii=hobbyking.Item(2112)
+#ii=hobbyking.Item(7338)
+ii.dump()
+
+#cc=hobbyking.Category(63)
+#print cc.soup
