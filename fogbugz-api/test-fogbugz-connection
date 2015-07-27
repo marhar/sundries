@@ -1,0 +1,47 @@
+#!/usr/bin/env python
+
+"""
+http://www.fogcreek.com/FogBugz/docs/70/topics/advanced/API.html
+
+curl 'https://markharrison-devel.fogbugz.com/api.asp?cmd=logon&email=mh@pixar.com&password=eek123'
+
+"""
+
+import sys
+import time
+from pprint import pprint
+import fogbugz
+
+fbparser=fogbugz.FogBugzParser()
+fbconnection=fogbugz.FogBugzConnection(
+             'https://markharrison-devel.fogbugz.com','mh@pixar.com','eek123')
+
+
+
+
+
+#-------------------------------------------------- add
+resp=fbconnection.sendit({
+    'cmd'          : 'new',
+    'sTitle'       : 'case of beer, %s'%(time.ctime()),
+    'cols'         : 'ixBug,ixBugParent',
+})
+z=fbparser.case(resp)
+print '='*70
+pprint(z)
+
+#-------------------------------------------------- search
+resp=fbconnection.sendit({
+    'cmd'  : 'search',
+    'q'  : 2,
+    'cols'  : 'ixBug,ixBugChildren,sTitle',
+})
+print '='*70
+print fbparser.pp(resp)
+
+#-------------------------------------------------- list items
+resp=fbconnection.sendit({
+    'cmd'  : 'search',
+})
+print '='*70
+print fbparser.pp(resp)

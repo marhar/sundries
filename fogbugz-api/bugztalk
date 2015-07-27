@@ -1,0 +1,93 @@
+#!/usr/bin/env python
+
+"""
+http://www.fogcreek.com/FogBugz/docs/70/topics/advanced/API.html
+
+curl 'https://markharrison-devel.fogbugz.com/api.asp?cmd=logon&email=mh@pixar.com&password=eek123'
+
+"""
+
+import urllib
+import time
+import xml.dom.minidom
+from pprint import pprint
+
+import fogbugz
+
+bugzp=fogbugz.FogBugzParser()
+
+def sendit(url,params=None):
+    f = urllib.urlopen(url)
+    resp=f.read()
+    return resp
+
+
+#--------------------------------------------------------------------------
+
+adm=['https://pxdmg.fogbugz.com','mh@pixar.com','eek123']
+adm=['https://markharrison-devel.fogbugz.com','mh@pixar.com','eek123']
+
+
+#-------------------------------------------------- api
+resp=sendit('%s/api.xml'%(adm[0]))
+bugzp.raiseerror(resp)
+api_info=bugzp.api(resp)
+print api_info
+api_url=api_info['url']
+
+#-------------------------------------------------- login
+#resp=sendit('%s/%scmd=logon&email=%s&password=%s'%\
+#                      (adm[0],api_url,adm[1],adm[2]))
+resp=sendit('%s/%s%s'%(adm[0],api_url,urllib.urlencode({
+    'cmd'      : 'logon',
+    'email'    : adm[1],
+    'password' : adm[2],
+})))
+bugzp.raiseerror(resp)
+login_info=bugzp.login2(resp)
+tok=login_info['token']
+print 'tok=',tok
+
+#-------------------------------------------------- list items
+resp=sendit('%s/%stoken=%s&cmd=search'%(adm[0],api_url,tok))
+print bugzp.pp(resp)
+bugzp.raiseerror(resp)
+
+#-------------------------------------------------- add
+resp=sendit('%s/%s%s'%(adm[0],api_url,urllib.urlencode({
+    'token'        : tok,
+    'cmd'          : 'new',
+    'sTitle'       : 'case of beer, %s'%(time.ctime()),
+    'ixBugParent'  : 2,
+    'cols'         : 'ixBug,ixBugParent',
+})))
+bugzp.raiseerror(resp)
+z=bugzp.case(resp)
+pprint(z)
+
+#-------------------------------------------------- search
+resp=sendit('%s/%s%s'%(adm[0],api_url,urllib.urlencode({
+    'token': tok,
+    'cmd'  : 'search',
+    'q'  : 2,
+    'cols'  : 'ixBug,ixBugChildren,sTitle',
+})))
+print bugzp.pp(resp)
+bugzp.raiseerror(resp)
+
+#-------------------------------------------------- list items
+resp=sendit('%s/%s%s'%(adm[0],api_url,urllib.urlencode({
+    'token': tok,
+    'cmd'  : 'search',
+})))
+print bugzp.pp(resp)
+bugzp.raiseerror(resp)
+
+
+#-------------------------------------------------- list items, POST
+
+#### BUSTED????
+##print params
+##resp=sendit('%s/api.asp'%(adm[0]),params)
+##ppxml(resp)
+##bugzp.raiseerror(resp)

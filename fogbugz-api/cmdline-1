@@ -1,0 +1,13 @@
+#!/bin/bash
+#
+# http://support.fogcreek.com/default.asp?W840
+#
+#
+
+FBCLI="/opt/fbcli/fbcli --url pxdmg.fogbugz.com
+                        --user mh@pixar.com
+                        --password-file $HOME/.pxdmg"
+
+$FBCLI list
+#$FBCLI
+#$FBCLI edit 25 'this is a comment' Version=98

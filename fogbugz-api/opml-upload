@@ -1,0 +1,58 @@
+#!/usr/bin/env python
+"""
+upload an opml to fogbugz
+"""
+
+import sys
+from pprint import pprint
+import time
+
+import opml
+import fogbugz
+
+
+fbparser=fogbugz.FogBugzParser()
+fbconnection=fogbugz.FogBugzConnection(
+             'https://markharrison-devel.fogbugz.com','mh@pixar.com','eek123')
+
+
+# ==================================================  clean this part up
+
+def main():
+
+    #fn=sys.argv[1]
+    fn= "tiny3.opml"
+
+    casenum={}
+
+    parsed=opml.OpmlFile(file(fn).read())
+    pprint(parsed.tree)
+
+    maxlevel=max([z[1] for z in parsed.tree.items()])
+    for levelnum in range(0,maxlevel+1):
+
+        for (parent,child) in parsed.tree.keys():
+            # BFS ensures parents created before child,
+            # Better to walk the tree in order, but need
+            # to figure out multiple roots
+            if parsed.tree[(parent,child)] == levelnum:
+                print '===',levelnum,parent,child
+
+                cmdstruct = {
+                    'cmd'    : 'new',
+                    'sTitle' : child,
+                }
+                if parent is not None:
+                    cmdstruct['ixBugParent']=casenum[parent]
+                resp=fbconnection.sendit(cmdstruct)
+                z=fbparser.case(resp)
+                casenum[child]=z[0]['ixBug']
+
+    #-------------------------------------------------- list items
+    resp=fbconnection.sendit({
+        'cmd'  : 'search',
+    })
+    print '='*70
+    print fbparser.pp(resp)
+
+main()

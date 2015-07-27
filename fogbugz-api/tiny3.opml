@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<opml version="1.0">
+  <head>
+    <title>fogbugz-project3</title>
+    <expansionState>1,4,5,6</expansionState>
+  </head>
+  <body>
+    <outline text="xyzzy part 1" _note="some text for 1" assigned="ass1" duedate="due1"/>
+    <outline text="xyzzy part 2">
+      <outline text="xyzzy part 2a"/>
+      <outline text="xyzzy part-2-b"/>
+    </outline>
+    <outline text="xyzzy part 3">
+      <outline text="xyzzy part 3a" _note="some text for 3a">
+        <outline text="xyzzy part 3a1">
+          <outline text="xyzzy part 3a1A"/>
+        </outline>
+      </outline>
+    </outline>
+  </body>
+</opml>

@@ -1,0 +1,85 @@
+#!/usr/bin/env python
+"""
+testing nested bugs
+"""
+
+
+import urllib
+import time
+import xml.dom.minidom
+from pprint import pprint
+
+import fogbugz
+
+bugzp=fogbugz.FogBugzParser()
+
+def sendit(url,params=None):
+    f = urllib.urlopen(url)
+    resp=f.read()
+    return resp
+
+
+#--------------------------------------------------------------------------
+
+adm=['https://pxdmg.fogbugz.com','mh@pixar.com','eek123']
+adm=['https://markharrison-devel.fogbugz.com','mh@pixar.com','eek123']
+
+
+#-------------------------------------------------- api
+resp=sendit('%s/api.xml'%(adm[0]))
+bugzp.raiseerror(resp)
+api_info=bugzp.api(resp)
+api_url=api_info['url']
+
+#-------------------------------------------------- login
+#resp=sendit('%s/%scmd=logon&email=%s&password=%s'%\
+#                      (adm[0],api_url,adm[1],adm[2]))
+resp=sendit('%s/%s%s'%(adm[0],api_url,urllib.urlencode({
+    'cmd'      : 'logon',
+    'email'    : adm[1],
+    'password' : adm[2],
+})))
+bugzp.raiseerror(resp)
+login_info=bugzp.login2(resp)
+tok=login_info['token']
+
+nums={}
+def add1(url1,url2, tok, sTitle, ixBugParent):
+    print sTitle
+    pparms={
+        'token'        : tok,
+        'cmd'          : 'new',
+        'sTitle'       : sTitle,
+        'cols'         : 'ixBug,ixBugParent',
+    }
+    if ixBugParent != 0:
+        pparms['ixBugParent'] = ixBugParent
+
+    resp=sendit('%s/%s%s'%(url1,url2,urllib.urlencode(pparms)))
+    bugzp.raiseerror(resp)
+    z= bugzp.case(resp)
+    nums[sTitle]=z[0]['ixBug']
+    return z
+
+
+z=add1(adm[0],api_url,tok,'x0',0);
+z=add1(adm[0],api_url,tok,'x1',nums['x0']);
+z=add1(adm[0],api_url,tok,'x2',nums['x0']);
+z=add1(adm[0],api_url,tok,'x3',nums['x0']);
+z=add1(adm[0],api_url,tok,'x1a',nums['x1']);
+z=add1(adm[0],api_url,tok,'x1b',nums['x1']);
+z=add1(adm[0],api_url,tok,'x1c',nums['x1']);
+z=add1(adm[0],api_url,tok,'x2a',nums['x2']);
+z=add1(adm[0],api_url,tok,'x2b',nums['x2']);
+z=add1(adm[0],api_url,tok,'x3a',nums['x3']);
+z=add1(adm[0],api_url,tok,'x1b1',nums['x1b']);
+
+pprint(nums)
+
+#-------------------------------------------------- list items
+resp=sendit('%s/%s%s'%(adm[0],api_url,urllib.urlencode({
+    'token': tok,
+    'cmd'  : 'search',
+})))
+print bugzp.pp(resp)
+bugzp.raiseerror(resp)
