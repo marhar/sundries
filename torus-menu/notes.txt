@@ -1,0 +1,67 @@
+animate by moving around torus,
+or by moving torus
+
+modes
+
+rectangle
+
+cylinder, horizontal
+
+cylinder, vertical
+
+torus
+
+twisted torus
+
+sliced torus
+
+twisted, sliced torus
+
+--
+
+twisted cylinder - no different than regular cylinder coz it doesn't connect
+
+sliced cylinder - like a helix?
+
+? is a twisted, sliced torus turnable, i.e. put on its side
+and reversing the twisting and slicing ?
+
+
+windows, behaves like sliced horizontal cylinder
+
+mac, behaves like a rectangle
+
+----
+
+handling partial final column
+
+
+for m x n rectangle, it is possible that the last column
+is partially filled.
+
+represent by m x (n-1) + b, where b is the number
+of rows in the partial column.
+
+
+-----
+
+given len L, height H, width W
+should be able to perform all calculations
+with present position p0, next postion p1
+
+---
+
+diagonal
+
+should apply to diagonals as well,
+travel to any parts of the shape?
+
+
+given p0, dx, dy, can still compute p1
+
+(dx,dy) =
+
+(-1, 1) ( 0, 1) ( 1, 1)
+(-1, 0) ( 0, 0) ( 1, 0)
+(-1,-1) ( 0,-1) ( 1,-1)
+
