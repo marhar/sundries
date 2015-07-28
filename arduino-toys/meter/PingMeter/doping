@@ -1,0 +1,15 @@
+set baud 9600
+set port [glob /dev/cu.usb*]
+
+while {1} {
+    set p [exec ping -c1 google.com | grep time= | sed -e s/.*time=// -e s/\\..*//]
+    set b [binary format c [expr $p+32]]
+    puts p=$p,b=:$b:
+    set ser [open $port r+]
+    fconfigure $ser -mode $baud,n,8,1 -buffering none
+    puts -nonewline $ser $b
+    flush $ser
+    close $ser
+
+    after 1000
+}
