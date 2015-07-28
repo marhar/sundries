@@ -1,0 +1,27 @@
+TOP=/Users/mh/g
+# supergit list
+# supergit sow
+# supergit attention
+
+WID=`(cd $TOP;for i in *; do echo $i|wc -c; done)|sort -n|tail -1|sed 's/ //g'`
+
+for i in $TOP/*; do
+
+    B=`basename $i`
+    B2=`printf "%-${WID}s" $B`
+    #echo ===================================================== $B
+    echo ===================================================== | sed "s/^/$B2 /"
+    cd $i || exit 1
+    git $* 2>&1 | sed "s/^/$B2 /"
+done
+
+
+
+# status --porcelain
+# push -n
+# config --global color.ui false
+
+# supergit status |grep 'Your branch is up'
+# supergit status |grep 'Your branch is behind'
+# supergit status |grep 'Your branch is ahead'
+# for i in *; do grep url $i/.git/config;done|grep -v marhar
