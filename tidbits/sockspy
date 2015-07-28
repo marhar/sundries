@@ -1,0 +1,245 @@
+#!/bin/sh
+# restart using wish \
+  exec wish $0 ${1+"$@"}
+
+# sockspy: copyright tom poindexter 1998
+#           tpoindex@nyx.net
+# version 1.0 - december 10, 1998
+#           
+# spy on conversation between a tcp client and server
+#
+# usage: sockspy clientPort serverHost serverPort
+#        
+#                 clientPort - port to which clients connect
+#                 serverHost - machine where real server runs
+#                 serverPort - port on which real server listens
+#
+#  e.g. to snoop on http connections to a web server:
+#       sockspy 8080 webhost  80
+#  then client web browser should use a url like:
+#        http://localhost:8080/index.html
+#        (or set your browser's proxy to use 8080 on the sockspy machine)
+
+proc createMain {} {
+  global fixed tcl_platform
+  set fixed [font create -family courier -size 10]
+  if {"$tcl_platform(platform)" == "windows"} {
+    # windows default font size is too big
+    font configure $fixed  -size [expr [font configure $fixed -size] - 1]
+  }
+  wm title . "sockspy: copyright tom poindexter 1998"
+  wm resizable .  1 1
+  frame .stat
+  label .stat.msg -textvariable msg
+  pack .stat.msg -side left -fill x 
+  pack .stat -side top -fill x
+  frame .cmd -relief sunken -bd 2
+  radiobutton .cmd.hex   -text hex   -variable ascii -value 0
+  radiobutton .cmd.ascii -text ascii -variable ascii -value 1
+  checkbutton .cmd.auto  -text autoscroll -variable auto
+  button .cmd.clear -text clear -command clearOutput
+  button .cmd.incr  -text "+ font" -command \
+	{font configure $fixed -size [expr [font configure $fixed -size] + 1]}
+  button .cmd.decr  -text "- font" -command \
+	{font configure $fixed -size [expr [font configure $fixed -size] - 1]}
+  button .cmd.save  -text save -command saveOutput
+  button .cmd.kill  -text kill -command exit
+  pack .cmd.kill .cmd.save .cmd.clear .cmd.decr .cmd.incr .cmd.auto \
+	.cmd.ascii .cmd.hex -side right -padx 3 -pady 3
+  pack .cmd -side top -fill x -pady 5
+  frame .title 
+  label .title.s -textvariable server
+  label .title.c -textvariable client
+  pack .title.s .title.c -side left -expand 1 -fill x 
+  pack .title -side top -fill x 
+  frame .out
+  listbox .out.serv -width 68 -height 20 -font $fixed \
+		-selectmode extended -yscrollcommand ".out.scr set"
+  scrollbar .out.scr -orient vertical -command doScroll
+  listbox .out.clnt -width 68 -height 20 -font $fixed \
+		-selectmode extended 
+  pack .out.serv .out.scr .out.clnt -side left  -fill both
+  pack .out -side top -expand 1 -fill both
+
+  selection handle .out.serv [list handleList .out.serv]
+  selection handle .out.clnt [list handleList .out.clnt]
+}
+
+proc handleList {win offset max} {
+  set s ""
+  foreach line [$win curselection] {
+    append s [format %-68.68s [$win get $line]] \n
+  }
+  return [string range $s $offset [incr max $offset]]
+}
+
+proc clearOutput {} {
+  .out.serv delete 0 end
+  .out.clnt delete 0 end
+}
+
+proc saveOutput {} {
+  set but [tk_dialog .what "save" "save which window?" "" 2 \
+		server client both cancel]
+  if {$but == -1 || $but == 3} {
+    return
+  }
+  set file [tk_getSaveFile -parent .]
+  if {"$file" == ""} {
+    return
+  }
+  if {[catch {open $file w} fd]} {
+    tk_messageBox -message "file $file cannot be opened" -icon error -type ok
+    return
+  }
+  switch $but {
+    0 {
+      set last [.out.serv size]
+      for {set i 0} {$i < $last} {incr i} {
+        puts $fd [.out.serv get $i]
+      }
+    }
+    1 {
+      set last [.out.clnt size]
+      for {set i 0} {$i < $last} {incr i} {
+        puts $fd [.out.clnt get $i]
+      }
+    }
+    2 {
+      set last [.out.serv size]
+      for {set i 0} {$i < $last} {incr i} {
+        puts $fd \
+	    [format "%-68.68s  %-68.68s" [.out.serv get $i] [.out.clnt get $i]]
+      }
+    }
+  }
+  close $fd
+  bell
+}
+
+proc doScroll {args} {
+  eval .out.serv yview $args
+  eval .out.clnt yview $args
+}
+
+proc zzbgerror {args} {
+  puts "bgerror: $args"
+  exit
+}
+
+proc printable {s} {
+  set n ""
+  foreach c [split $s {}] {
+    if {"$c" < "\x20" || "$c" > "\x7e"} {
+      append n " "
+    } else {
+      append n $c
+    }
+  }
+  return $n
+}
+
+proc autoScroll {} {
+  set top [expr [.out.serv size] - [.out.serv cget -height]]
+  .out.serv yview $top
+  .out.clnt yview $top
+}
+
+proc insertData {targ other data} {
+  global auto ascii
+  if {$ascii} {
+    foreach line [split $data \n] {
+      while {[string length $line]} {
+	set line2 [string range $line 0 65]
+	set line  [string range $line [string length $line2] end]
+	if {"$line" != ""} {
+	  set cont +
+	} else {
+	  set cont " "
+	}
+	$targ  insert end [format "%-66.66s %s" [printable $line2] $cont]
+	$other insert end ""
+      }
+    }
+  } else {
+    while {[string length $data]} {
+      set line [string range $data 0 15]
+      set data [string range $data [string length $line] end]
+      binary scan $line H* hexout
+      regsub -all {([0-9a-f][0-9a-f])} $hexout {\1 } hexout
+      $targ insert end [format "%-48.48s  %-16.16s" $hexout [printable $line]]
+      $other insert end ""
+    }
+  }
+  if {$auto} {
+    autoScroll
+  }
+}
+
+proc sockReadable {fromSock toSock fromWin toWin} {
+  global msg auto
+  if {[catch {read $fromSock} data]} {
+    puts catch,data=$data
+    set data ""
+  }
+  if {[string length $data] == 0} {
+    close $fromSock
+    close $toSock
+    $fromWin insert end "----- closed connection -----"
+    $toWin   insert end ""
+    set msg "waiting for new connection..." 
+    if {$auto} {
+      autoScroll
+    }
+    return
+  }
+  insertData $fromWin $toWin $data
+  if {[catch {puts -nonewline $toSock $data} rv]} {
+    puts "rv=$rv"
+    puts closing...$toSock,$fromSock
+    fileevent $toSock readable ""
+    fileevent $fromSock readable ""
+    close $toSock
+    close $fromSock
+  }
+  update
+}
+
+proc clntConnect {servHost servPort sockClnt ip port} {
+  global msg
+  set msg "connect from [fconfigure $sockClnt -sockname] $port"
+  if {[catch {set sockServ [socket $servHost $servPort]} reason]} {
+    tk_messageBox -message "cannot connect to $servHost $servPort: $reason" \
+		-icon error -type ok
+    exit
+  }
+  fconfigure $sockClnt -blocking 0 -buffering none -translation binary
+  fconfigure $sockServ -blocking 0 -buffering none -translation binary
+  fileevent $sockClnt readable \
+		[list sockReadable $sockClnt $sockServ .out.clnt .out.serv]
+  fileevent $sockServ readable \
+		[list sockReadable $sockServ $sockClnt .out.serv .out.clnt]
+}
+
+
+# get args and start it up
+
+if {$argc < 3} {
+  puts "usage: $argv0 localPort serverHost serverPort"
+  exit
+}
+set clntPort [lindex $argv 0]
+set servHost [lindex $argv 1]
+set servPort [lindex $argv 2]
+
+set client "client: $clntPort"
+set server "server: $servHost $servPort" 
+set ascii 1
+set auto  1
+createMain
+set msg "waiting for new connection..."
+
+socket -server [list clntConnect $servHost $servPort] $clntPort
+ 
+# that's all!
+

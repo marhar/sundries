@@ -1,0 +1,4 @@
+#!/bin/sh
+
+echo will refresh a downloaded thumbset with any of the latest
+echo pictures

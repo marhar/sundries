@@ -1,0 +1,11 @@
+$ curl -s 'http://www.rcgroups.com/forums/attachment.php?attachmentid=1772439'|grep thumbnail
+	<img class="thumbnail" src="clear.gif" width="200" height="150" border="0">
+	<img class="thumbnail" src="clear.gif" width="200" height="150" border="0">
+		<img class="thumbnail" style="border: 1px solid red;" src="http://static.rcgroups.com/forums/attachments/1/8/9/6/9/t1772439-6-thumb-NutBall%20the%20best%20damn%20RET%20foamy%20yet.jpg?d=1205990028" alt="NutBall the best damn RET foamy yet.jpg" border="0">
+		<img class="thumbnail" src="http://static.rcgroups.com/forums/attachments/1/8/9/6/9/t1772440-125-thumb-bottom%20of%20NB.jpg?d=1205990064" alt="bottom of NB.jpg" border="0">
+		<img class="thumbnail" src="http://static.rcgroups.com/forums/attachments/1/8/9/6/9/t1772445-194-thumb-NB%20side%20view.jpg?d=1205990149" 
+
+$ curl -s 'http://www.rcgroups.com/forums/attachment.php?attachmentid=1772439'|grep "Next 5 Attachments"
+		<a href="attachment.php?s=ba3fd62d4af4c77a1cec8d927d04c33d&amp;attachmentid=2191129">Next 5 Attachments</a>
+
+

@@ -1,0 +1,121 @@
+#!/usr/bin/env /usr/anim/modsquad/bin/dmgpython
+"""
+usage:
+	rcthumbs name
+	rcthumbs name attid
+"""
+
+import sys
+import os
+import urllib
+import urlparse
+from BeautifulSoup import BeautifulSoup
+
+def normalize_att(url):
+    aa=urlparse.urlparse(url)
+    zz=urlparse.parse_qs(aa[4])
+    url='%s//%s%s'%(aa[:3])
+    url+='?attachmentid=%s'%(zz['attachmentid'][0])
+    return url
+
+def getref(soup):
+    return ''
+    if soup.name=='img':
+        return 'iii'
+    else:
+        x=soup.findFirst('img')
+        return 'fff'
+
+ccc=0
+def loopover(url,html,fd):
+    global ccc
+    soup = BeautifulSoup(html)
+    for ximg in soup.findAll('img',{"class":'thumbnail'}):
+        #ximg['width']=100
+        if ximg.attrMap['src'] != 'clear.gif':
+            pp=ximg.findParent()
+            ccc+=1
+            print ccc,
+            if pp.name=='a':
+                print 'a',getref(pp)
+                #TODO: nuke s= parm
+                pp['href']='http://www.rcgroups.com/'+pp['href']
+                print >>fd,pp
+            elif pp.name=='td':
+                print 'td',getref(ximg)
+                ximg['class']='thumbnail'
+                print >>fd,'<a href="%s">'%(url)
+                print >>fd,ximg
+                print >>fd,'</a>'
+
+    ## note: there might be stragglers on a last page if there
+    ## are less than 5 attachments.
+    ## TODO: we need to pick up those stragglers by following
+    ## the ">>" link.  ugg.
+    next5t=soup.firstText('Next 5 Attachments')
+    if next5t:
+        next5=next5t.findParent()
+        zz=urlparse.parse_qs(next5['href'])
+        nextid=zz['attachmentid'][0]
+        return nextid
+    else:
+        return None
+
+def getlast(fname):
+    """get the last thumbnail number in a local file"""
+    html=open(fname).read()
+    soup = BeautifulSoup(html)
+    for a in soup.findAll('a'):
+        lasta=a
+    zz=urlparse.parse_qs(lasta['href'])
+    lastatt=zz['attachmentid'][0]
+    return lastatt
+
+def genfname(cname):
+    return 'html/%s.html'%(cname)
+
+def do_update(cname):
+    ### warning: not working, repeats the last couple of pics
+    ### good test case ./rcthumbs yak54 3254974
+
+    """update a local thumbnail file"""
+    fname=genfname(cname)
+    if os.path.exists(fname):
+        attno=getlast(fname)
+        fd=open(fname,'a')
+    while attno != None:
+        url='http://www.rcgroups.com/forums/attachment.php?attachmentid=%s'%(attno)
+        html=urllib.urlopen(url).read()
+        print '--------------------------------',attno
+        attno=loopover(url,html,fd)
+        fd.flush()
+
+def do_initialize(cname,attno):
+    fname=genfname(cname)
+    fd=open(fname,'w')
+    while attno != None:
+        url='http://www.rcgroups.com/forums/attachment.php?attachmentid=%s'%(attno)
+        html=urllib.urlopen(url).read()
+        print '--------------------------------',attno
+        attno=loopover(url,html,fd)
+        fd.flush()
+
+
+def main():
+    if len(sys.argv) == 2:
+        cname=sys.argv[1]
+        print 'updating',cname
+        do_update(cname)
+    elif len(sys.argv) == 3:
+        cname=sys.argv[1]
+        attno=sys.argv[2]
+        do_initialize(cname,attno)
+    else:
+        print >>sys.stderr, 'usage: rcthumbs name [attid]'
+        sys.exit(1)
+
+if __name__ == "__main__":
+    try:
+        main()
+    except KeyboardInterrupt:
+        pass

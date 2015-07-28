@@ -1,0 +1,76 @@
+#!/usr/bin/env /usr/anim/modsquad/bin/dmgpython
+"""
+eg:
+
+http://www.rcgroups.com/forums/attachment.php?attachmentid=1772439
+
+bug:
+
+last image looks like this, parent is td:  or maybe because it is
+the current image???
+
+	<td class="alt2" align="center">
+		
+		<img class="thumbnail" style="border: 1px solid red;" src="http://static.rcgroups.com/forums/attachments/2/7/7/1/3/4/t3420762-85-thumb-flight%20result.jpg?d=1282030497" alt="flight result.jpg" border="0">
+		
+		<div class="smallfont">*</div>
+	</td>
+
+"""
+
+import sys
+import os
+import urllib
+import urlparse
+from BeautifulSoup import BeautifulSoup
+
+def doit(html,fd):
+    soup = BeautifulSoup(html)
+    for x in soup.findAll('img',{"class":'thumbnail'}):
+        a=x.findParent()
+        if a.name=='a':
+            a['href']='http://www.rcgroups.com/'+a['href']
+            print >>fd,a
+    next5t=soup.firstText('Next 5 Attachments')
+    if next5t:
+        next5=next5t.findParent()
+        zz=urlparse.parse_qs(next5['href'])
+        nextid=zz['attachmentid'][0]
+        return nextid
+    else:
+        return None
+
+def getlast(fname):
+    html=open(fname).read()
+    soup = BeautifulSoup(html)
+    for a in soup.findAll('a'):
+        lasta=a
+    zz=urlparse.parse_qs(lasta['href'])
+    lastatt=zz['attachmentid'][0]
+    return lastatt
+
+def main():
+
+    fname=sys.argv[1]
+    if os.path.exists(fname):
+        attno=getlast(fname)
+        fd=open(fname,'a')
+
+    else:
+        pass
+        attno=sys.argv[2]
+        fd=sys.stdout
+
+    print attno
+
+    while attno != None:
+        url='http://www.rcgroups.com/forums/attachment.php?attachmentid=%s'%(attno)
+        html=urllib.urlopen(url).read()
+        attno=doit(html,fd)
+        fd.flush()
+
+if __name__ == "__main__":
+    try:
+        main()
+    except KeyboardInterrupt:
+        pass

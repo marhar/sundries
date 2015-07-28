@@ -1,0 +1,3 @@
+#!/bin/sh
+
+rcthumbs $1 | tee $2.html;open $2.html

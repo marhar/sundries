@@ -1,0 +1,48 @@
+#!/usr/bin/tclsh
+#
+# xdump -- old school hex dump
+#
+# Mark Harrison
+# mh@pixar.com
+
+proc xdump {fd} {
+    fconfigure $fd -translation binary
+    set off 0
+    while {1} {
+        set data [read $fd 16]
+        set sl [string length $data]
+        if {$sl == 0} {
+            break
+        }
+        puts -nonewline [format "%08x " $off]
+
+        for {set i 0} {$i < $sl} {incr i} {
+             set ch [string index $data $i]
+             scan $ch %c cx
+             puts -nonewline [format "%02x " $cx]
+        }
+
+        for {} {$i < 16} {incr i} {
+             puts -nonewline "   "
+        }
+
+        for {set i 0} {$i < $sl} {incr i} {
+             set ch [string index $data $i]
+             if {![string match {[ -~]} $ch]} {
+                 set ch .
+             }
+             puts -nonewline $ch
+        }
+
+        puts ""
+        incr off $sl
+    }
+}
+
+if {[llength $argv] > 0} {
+    set fd [open $argv]
+    xdump $fd
+    close $fd
+} else {
+    xdump stdin
+}
