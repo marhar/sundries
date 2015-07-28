@@ -1,27 +1,86 @@
-TOP=/Users/mh/g
-# supergit list
-# supergit sow
-# supergit attention
+#!/bin/sh
 
+TOP=$HOME/g
+GITNAME=marhar
+
+help="
+supergit runs across multiple git depots.
+configure the TOP variable to be the directory where you check out repos.
+Your config:
+    TOP=$TOP
+    GITNAME=$GITNAME
+
+commands:
+    help    -- print this message
+    notmine -- show which repos aren't cloned from your own github repos
+    list    -- list repos under \$TOP
+    sow     -- state of the world
+    attention -- what needs your attention?
+    needspush -- what repos need a push?
+
+any other command is invoked in every git repo.  It's useful for things
+like this:
+    supergit config --global color.ui false
+    supergit push
+"
+
+# status --porcelain
+# push -n
+# config --global color.ui false
+# GIT_ASKPASS=true supergit push -n
+# for i in *; do grep url $i/.git/config;done|grep -v marhar
+
+#-----------------------------------------------------------------------
+if test $# -eq 0; then
+    cat <<.
+$help
+.
+
+#-----------------------------------------------------------------------
+elif test $1. = help.; then
+    cat <<.
+$help
+.
+
+#-----------------------------------------------------------------------
+elif test $1. = notmine.; then
+    echo TODO: NOTMINE
+
+#-----------------------------------------------------------------------
+elif test $1. = list.; then
+    cd $TOP
+    for i in *;do
+        if test -f $i/.git/config; then
+            echo $i
+        else
+            echo $i NOT A GIT REPO
+        fi
+    done
+
+#-----------------------------------------------------------------------
+elif test $1. = sow.; then
+    echo TODO: SOW
+
+#-----------------------------------------------------------------------
+elif test $1. = attention.; then
+    echo TODO: ATTENTION
+
+#-----------------------------------------------------------------------
+elif test $1. = needspush.; then
+    supergit status|grep 'Your branch is'|grep -v 'Your branch is up'
+
+#-----------------------------------------------------------------------
+else
+# run over all git repos
 WID=`(cd $TOP;for i in *; do echo $i|wc -c; done)|sort -n|tail -1|sed 's/ //g'`
 
 for i in $TOP/*; do
 
     B=`basename $i`
     B2=`printf "%-${WID}s" $B`
-    #echo ===================================================== $B
-    echo ===================================================== | sed "s/^/$B2 /"
+    echo ===================================================== | sed "s/^/$B2/"
     cd $i || exit 1
-    git $* 2>&1 | sed "s/^/$B2 /"
+    git "$@" 2>&1 | sed "s/^/$B2/"
 done
+fi
 
-
-
-# status --porcelain
-# push -n
-# config --global color.ui false
-
-# supergit status |grep 'Your branch is up'
-# supergit status |grep 'Your branch is behind'
-# supergit status |grep 'Your branch is ahead'
-# for i in *; do grep url $i/.git/config;done|grep -v marhar
