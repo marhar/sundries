@@ -1,0 +1,68 @@
+#!/usr/bin/python
+"""
+xmtool
+
+xmtool position  winname1 bottomof|topof|leftof|rightof winname2
+xmtool raise winnames...
+xmtool wait winnames...
+xmtool slideto winname x y
+xmtool moveto  winname x y
+
+"""
+
+import sys
+import x11util
+
+def do_wait():
+    for winname in sys.argv[2:]:
+        winid=x11util.windowid(winname)
+        x11util.waitfor(winid)
+
+def do_raise():
+    for winname in sys.argv[2:]:
+        winid=x11util.windowid(winname)
+        x11util.windowraise(winid)
+
+def do_moveto():
+    winname=sys.argv[2]
+    x=int(sys.argv[3])
+    y=int(sys.argv[4])
+    print 1111
+    winid=x11util.windowid(winname)
+    print 2222
+    x11util.moveto(winid,x,y)
+
+def do_slideto():
+    winname=sys.argv[2]
+    x=int(sys.argv[3])
+    y=int(sys.argv[4])
+    winid=x11util.windowid(winname)
+    x11util.slideto(winid,x,y)
+
+def do_position():
+    winname1=sys.argv[2]
+    pos= sys.argv[3]
+    winname2=sys.argv[4]
+    winid1=x11util.windowid(winname1)
+    winid2=x11util.windowid(winname2)
+    x11util.position(winid1,pos,winid2,x11util.slideto)
+
+xf={
+'raise':do_raise,
+'position':do_position,
+'slideto':do_slideto,
+'moveto':do_moveto,
+'wait':do_wait,
+}
+
+def usage():
+    print 'usage...'
+    sys.exit(0)
+
+def main():
+    if len(sys.argv) > 1 and xf.has_key(sys.argv[1]):
+        xf[sys.argv[1]]()
+    else:
+        usage()
+main()
+

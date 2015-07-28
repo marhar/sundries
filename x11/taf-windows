@@ -1,0 +1,66 @@
+#!/bin/sh
+set -x
+
+host=$1
+host=macbook
+ # set projector 1400x1050 60hz
+	# set projector 1024x768 60hz
+echo $1
+if   test $1. = linux.;     then ww=60; hh=7
+elif test $1. = macbook.;   then ww=60; hh=5
+elif test $1. = mac.;       then ww=60; hh=10
+elif test $1. = fishbowl1.; then ww=60; hh=8
+elif test $1. = fishbowl2.; then ww=60; hh=6
+else
+    echo usage: $0 linux/macbook/mac
+    exit 1
+fi
+
+gstring=${ww}x${hh}-0+0
+
+alldemos="
+     reconn
+     select
+     dual
+     xtable
+     idle
+     opentrans
+     pertrans
+     shorttrans
+     luckytrans
+"
+
+thisdemo="
+     opentrans
+     pertrans
+     shorttrans
+"
+
+#default to all
+thisdemo=$alldemos
+
+democar=`echo $thisdemo|sed 's/ .*//'`
+democdr=`echo $thisdemo|sed 's/[^ ]* //'`
+
+TNS1=tmpltest3
+TNS2=tmpltest
+
+for i in $thisdemo; do
+    xterm -T $TNS1-$i -geometry $gstring -e 'sleep 20' &
+    xterm -T $TNS2-$i -geometry $gstring -e 'sleep 20' &
+done
+
+# they all start out in the upper right, so don't need to
+# position the first one
+xmtool xwait $TNS1-$democar $TNS2-$democar
+xmtool position $TNS1-$democar leftof $TNS2-$democar
+
+lastone=$democar
+for x in $democdr; do
+    (xmtool wait $TNS1-$x $TNS2-$x
+    xmtool raise $TNS1-$x $TNS2-$x&
+    xmtool position $TNS1-$x bottomof $TNS1-$lastone &
+    xmtool position $TNS2-$x bottomof $TNS2-$lastone &
+    wait)
+    lastone=$x
+done
