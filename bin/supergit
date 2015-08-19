@@ -22,13 +22,10 @@ any other command is invoked in every git repo.  It's useful for things
 like this:
     supergit config --global color.ui false
     supergit push
+    supergit status -s
 "
-
-# status --porcelain
 # push -n
-# config --global color.ui false
 # GIT_ASKPASS=true supergit push -n
-# for i in *; do grep url $i/.git/config;done|grep -v marhar
 
 #-----------------------------------------------------------------------
 if test $# -eq 0; then
@@ -44,7 +41,9 @@ $help
 
 #-----------------------------------------------------------------------
 elif test $1. = notmine.; then
-    echo TODO: NOTMINE
+    # which repos don't have a base that belongs to me
+    supergit config --list|grep remote.origin.url|grep -v github.com:$GITNAME
+
 
 #-----------------------------------------------------------------------
 elif test $1. = list.; then
@@ -83,4 +82,3 @@ for i in $TOP/*; do
     git "$@" 2>&1 | sed "s/^/$B2/"
 done
 fi
-
