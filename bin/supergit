@@ -20,9 +20,12 @@ commands:
 
 any other command is invoked in every git repo.  It's useful for things
 like this:
-    supergit config --global color.ui false
     supergit push
     supergit status -s
+
+or things like this, if you want to set parameters in each repo and
+not in your global git config:
+    supergit config --global color.ui false
 "
 # push -n
 # GIT_ASKPASS=true supergit push -n
@@ -62,11 +65,11 @@ elif test $1. = sow.; then
 
 #-----------------------------------------------------------------------
 elif test $1. = attention.; then
-    echo TODO: ATTENTION
+    (supergit status -s;supergit needspush)|sort
 
 #-----------------------------------------------------------------------
 elif test $1. = needspush.; then
-    supergit status|grep 'Your branch is'|grep -v 'Your branch is up'
+    supergit status|grep 'Your branch'|grep -v up-to-date
 
 #-----------------------------------------------------------------------
 else
