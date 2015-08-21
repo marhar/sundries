@@ -22,6 +22,7 @@ testing           Your branch is ahead of 'origin/master' by 2 commits.
 
 # what repos need attention?
 
+$ supergit attention
 multiwii_hk328p   =====================================================
 sphinx_rtd_theme  =====================================================
 sqlminus          =====================================================
@@ -33,4 +34,16 @@ testing           =====================================================
 testing           Your branch is ahead of 'origin/master' by 2 commits.
 tufte-css         =====================================================
 wiichuck_adapter  =====================================================
+
+$ supergit attention -q
+ArduinoNunchuk    Your branch is ahead of 'origin/master' by 1 commit.
+mailtools         Your branch is ahead of 'origin/master' by 1 commit.
+private            M paws/src/awsh
+private            M paws/src/awshelpers.py
+private            M paws/src/instance-watcher
+private           ?? paws/src/out
+private           Your branch is ahead of 'origin/master' by 2 commits.
+sundries           M bin/supergit
+sundries          Your branch is ahead of 'origin/master' by 2 commits.
+testing           Your branch is ahead of 'origin/master' by 2 commits.
 ````

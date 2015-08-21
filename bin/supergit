@@ -12,11 +12,12 @@ Your config:
 
 commands:
     help    -- print this message
+    attention [-q] -- what needs your attention?
+    needspush -- what repos need a push?
     notmine -- show which repos aren't cloned from your own github repos
+
     list    -- list repos under \$TOP
     sow     -- state of the world
-    attention -- what needs your attention?
-    needspush -- what repos need a push?
 
 any other command is invoked in every git repo.  It's useful for things
 like this:
@@ -47,7 +48,6 @@ elif test $1. = notmine.; then
     # which repos don't have a base that belongs to me
     supergit config --list|grep remote.origin.url|grep -v github.com:$GITNAME
 
-
 #-----------------------------------------------------------------------
 elif test $1. = list.; then
     cd $TOP
@@ -65,7 +65,12 @@ elif test $1. = sow.; then
 
 #-----------------------------------------------------------------------
 elif test $1. = attention.; then
-    (supergit status -s;supergit needspush)|sort
+    # attention -q for quieter mode
+    if test $2. = -q.; then
+        (supergit status -s;supergit needspush)|sort|grep -v ==========
+    else
+        (supergit status -s;supergit needspush)|sort
+    fi
 
 #-----------------------------------------------------------------------
 elif test $1. = needspush.; then
