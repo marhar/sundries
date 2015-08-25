@@ -1,0 +1,4 @@
+#!/bin/sh
+# termtitle -- set the title on a terminal window
+# usage:   termtitle my terminal window
+echo -n -e "\033]0;$*\007"
