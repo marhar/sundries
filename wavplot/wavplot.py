@@ -1,22 +1,21 @@
 #!/usr/bin/env /usr/anim/modsquad/bin/dmgpython
 """
-how to plot a wav file
+wavplot -- plot a wav file as a soundprint on a PNG canvas.
 """
 
-import sys
-import wave
-import struct
-import new
-from pngcanvas import PNGCanvas 
+import sys,wave,struct,new
+import pngcanvas
 
 #-----------------------------------------------------------------------
 # experimental class modifications
 
 def gettimecode_secs(self,frameno):
+    """return the timecode in seconds"""
     return float(frameno)*(1.0/self.getframerate())
-def gettimecode_mins(self,frameno):
-    return float(frameno)*(1.0/self.getframerate())/60.0
 
+def gettimecode_mins(self,frameno):
+    """return the timecode in minutes"""
+    return float(frameno)*(1.0/self.getframerate())/60.0
 
 #-----------------------------------------------------------------------
 # wav decoders, 8,16,24,32 bits mono,stereo
@@ -73,7 +72,7 @@ def cvt32s(x):
 
 #-----------------------------------------------------------------------
 def compute(file):
-    
+
     ii=wave.open(file)
     nframes=ii.getnframes()
     framerate=ii.getframerate()
@@ -120,18 +119,19 @@ def compute(file):
         # unset key
         # set title "foo"
         # add x
-        
+
         data.append( (ii.gettimecode(frameno),v))
         #print ii.gettimecode(frameno),v
         frameno+=frameskip
         if frameno >= nframes:
             break
-    
+
     return  data
 
+#-----------------------------------------------------------------------
 def genPng(file,data,width=256,height=256,lines=True):
 
-    canvas = PNGCanvas(width, height)
+    canvas = pngcanvas.PNGCanvas(width, height)
     canvas.color = [0xff,0xff,0xff,0xff]
     canvas.filledRectangle(0, 0, width, height)
     canvas.color = [0,0,0,0xff]
@@ -149,7 +149,7 @@ def genPng(file,data,width=256,height=256,lines=True):
     y_min = min(y)
 
     sx = width / float((x_max - x_min))
-    sy = height / float(y_max - y_min) 
+    sy = height / float(y_max - y_min)
 
     print "X: {%04f,%04f}" % (x_min,x_max)
     print "Y: {%04f,%04f}" % (y_min,y_max)
@@ -159,9 +159,9 @@ def genPng(file,data,width=256,height=256,lines=True):
     last = []
 
     for row in data:
-        px = int((row[0]-x_min) * sx) 
+        px = int((row[0]-x_min) * sx)
         py = int((row[1]-y_min) * sy)
-        
+
         if lines and last != []:
             canvas.line(last[0],last[1],px,py)
         else: canvas.point(px,py)
@@ -169,13 +169,19 @@ def genPng(file,data,width=256,height=256,lines=True):
         if lines: last = (px,py)
 
     # write to file
-    f = open("test.png", "wb")
+    f = open(file, "wb")
     f.write(canvas.dump())
     f.close()
 
+#-----------------------------------------------------------------------
+def main():
+    """the main thing"""
+    if len(sys.argv) != 3:
+        print('usage: wavplot.py infile.wav outfile.png')
+        sys.exit(1)
+
+    data = compute(sys.argv[1])
+    genPng(sys.argv[2],data)
 
 if __name__ == '__main__':
-    
-    outfile = "test.png"
-    data = compute(sys.argv[1])
-    genPng(outfile,data)
+    main()
