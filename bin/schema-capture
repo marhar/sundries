@@ -1,0 +1,45 @@
+#!/bin/sh
+help="
+schema-capture -- capture oracle schema to git
+"
+
+BIN=/Users/mharrison/cx/src/cx_OracleTools-8.0/bin
+GITBASE=$HOME/lc/db-schema
+
+if test $# -eq 3; then
+    database=$1
+    schema=$2
+    connstr=$3
+else
+    echo usage: `basename $0` database schema connstr
+    echo example: `basename $0` 'lcdev foo foo/foo@lcdev'
+    exit 1
+fi
+
+echo --------------------------------------------------------- starting
+echo GITBASE=$GITBASE
+echo database=$1
+echo schema=$2
+echo connstr=$3
+
+echo --------------------------------------------------------- starting
+if test -d $GITBASE/$database; then
+    cd $GITBASE/$database
+else
+    echo no directory: $GITBASE/$database
+    echo please create it
+    exit 1
+fi
+
+echo --------------------------------------------------------- cleaning
+rm -rf $schema
+
+
+$BIN/ExportObjects --default-tablespace --default-storage --schema=$connstr
+echo ----------------------------------------------------------- status
+git add $schema
+git status --porcelain
+echo ------------------------------------------------------- committing
+git commit -m "updated: $schema@$database"
+echo ---------------------------------------------------------- pushing
+git push
