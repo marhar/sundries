@@ -1,6 +1,26 @@
 #!/bin/sh
 # junkdir -- creates a convenient junk directory under $HOME
 
+
+for i in 1 2 3 4 5 6 7 8 9; do
+    D=junk$i$i
+    P=$HOME/$D
+    if test ! -d $P -a ! -f $P; then
+        echo $D
+        mkdir $P
+        exit 0
+    fi
+done
+# else
+echo all full of junk
+exit 1
+
+
+#----------
+exit 0
+
+echo this is old one?
+
 # clean up empties
 rmdir $HOME/junk* 2>/dev/null
 

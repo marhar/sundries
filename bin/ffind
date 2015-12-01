@@ -1,0 +1,9 @@
+#!/bin/sh
+
+if test $# -eq 0; then
+    D=.
+else
+    D=$1
+fi
+
+find $D -type f

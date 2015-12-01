@@ -1,0 +1,3 @@
+#!/bin/sh
+curl ip.appspot.com
+echo
