@@ -4,29 +4,48 @@ schema-capture -- capture oracle schema to git
 "
 
 BIN=/Users/mharrison/cx/src/cx_OracleTools-8.0/bin
-GITBASE=$HOME/lc/db-schema
+GITBASE=$HOME/lc/schema-history
 
-if test $# -eq 3; then
-    database=$1
-    schema=$2
-    connstr=$3
+# for now, only work with foo/foo@db
+# later, add connect string info? what about passwd?
+# can we run from single schema and dump other schema?
+if test $# -eq 2; then
+    schema=$1
+    database=$2
 else
-    echo usage: `basename $0` database schema connstr
-    echo example: `basename $0` 'lcdev foo foo/foo@lcdev'
+    echo usage: `basename $0` schema database
+    echo example: `basename $0` tlc lcdev
     exit 1
 fi
 
-echo --------------------------------------------------------- starting
-echo GITBASE=$GITBASE
-echo database=$1
-echo schema=$2
-echo connstr=$3
+WORKDIR=$GITBASE/db/$database
+connstr=$schema/$schema@$database
+nopw_connstr=$schema@$database
+
+echo ---------------------------------------------------- configuration
+echo WORKDIR=$WORKDIR
+echo schema=$schema
+echo database=$database
+echo connection=$nopw_connstr
 
 echo --------------------------------------------------------- starting
-if test -d $GITBASE/$database; then
-    cd $GITBASE/$database
+
+# ensure the executable is working
+if test ! -x $BIN/ExportObjects; then
+    echo no executable: $BIN/ExportObjects
+    exit 1
+fi
+
+if test `$BIN/ExportObjects --version | wc -l` -ne 1; then
+    echo problem with executable: $BIN/ExportObjects
+    exit 1
+fi
+
+# protect against invalid execution by requiring thedirectory exist.
+if test -d $WORKDIR; then
+    cd $WORKDIR
 else
-    echo no directory: $GITBASE/$database
+    echo no directory: $WORKDIR
     echo please create it
     exit 1
 fi
@@ -34,12 +53,14 @@ fi
 echo --------------------------------------------------------- cleaning
 rm -rf $schema
 
-
+echo -------------------------------------------------------- exporting
 $BIN/ExportObjects --default-tablespace --default-storage --schema=$connstr
+
 echo ----------------------------------------------------------- status
 git add $schema
 git status --porcelain
+
 echo ------------------------------------------------------- committing
-git commit -m "updated: $schema@$database"
+git commit -m "AR-994 updated: $nopw_connstr"
 echo ---------------------------------------------------------- pushing
 git push
