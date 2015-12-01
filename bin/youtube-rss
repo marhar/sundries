@@ -1,0 +1,27 @@
+#!/bin/sh
+#
+# usage: mvn http://markharrison.net/y/foo      *.mp4
+#
+# youtube-rss servelet http://markharrison.net/y
+
+TITLE=$1; shift
+PREFIX=$1;shift
+FILES=$*
+
+if test $PREFIX. = ..; then
+    PREFIX=http://markharrison.net/y
+    echo using default prefix: $PREFIX
+fi
+
+# assume renamed with no spaces?
+### rename -nows foo*
+
+# generate rss
+
+# rssgen mvn http://markharrison.net/y *.mp3 >mvn.rss
+rssgen $TITLE $PREFIX $FILES >$TITLE.rss
+
+# upload
+
+scp -i /Users/mharrison/.aws/marharaws.pem -rp $TITLE.rss ec2-user@markharrison.net:/var/www/html/y
+scp -i /Users/mharrison/.aws/marharaws.pem -rp $FILES ec2-user@markharrison.net:/var/www/html/y
