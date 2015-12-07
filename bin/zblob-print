@@ -1,0 +1,10 @@
+#!/bin/sh
+help='
+zblob-print -- print a zlib-compressed blob
+usage:
+    zblob-print files...
+'
+# -c coz it shows an interesting way to loop over files
+for i in $*; do
+python -c "import zlib,sys;print repr(zlib.decompress(sys.stdin.read()))" <$i
+done
