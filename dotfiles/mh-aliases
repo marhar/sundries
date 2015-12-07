@@ -1,0 +1,5 @@
+# mark's handy aliases
+
+alias pb='pbpaste|pbcopy'
+alias myip='curl ip.appspot.com; echo'
+alias ffind='find . -type f'
