@@ -1,0 +1,6 @@
+#!/bin/sh
+# back up dogbert
+
+set -x
+cd $HOME
+rsync -avz --progress Pictures /Volumes/mhbackup/backups
