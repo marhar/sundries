@@ -1,0 +1,26 @@
+#!/bin/sh
+#
+# usage: mvn http://markharrison.net/y/foo      *.mp4
+
+TITLE=$1
+PREFIX=$2
+
+# assume renamed with no spaces?
+
+### rename -nows foo*
+
+# generate mp3
+
+# generate rss
+
+# upload
+
+cat <<.
+
+~/Downloads $ for i in mvn*.mp4;do ffmpeg -i $i -c:a libmp3lame -ac 2 -q:a 2 `basename $i .mp4`.mp3;done
+
+rssgen mvn http://markharrison.net/y *.mp3 >mvn.rss
+rssgen $TITLE $PREFIX $MP3FILES >$RSS.rss
+
+~/Downloads $ scp -i /Users/mharrison/.aws/marharaws.pem -rp mvn ec2-user@52.88.221.213:.
+.

@@ -1,0 +1,25 @@
+#!/bin/sh
+
+if test $# -ne 1; then
+    echo usage: $0 artifactId
+    exit 1
+else
+    id=$1
+fi
+
+set -x
+mvn archetype:generate \
+      -DinteractiveMode=false \
+  -DarchetypeArtifactId=maven-archetype-quickstart \
+              -DgroupId=com.github.marhar.javalogic \
+           -DartifactId=$id
+
+cat <<.
+
+Add this to pom.xml for java 1.8 compatibility:
+
+  <properties>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+  </properties>
+.

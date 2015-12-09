@@ -1,0 +1,40 @@
+#!/bin/sh
+#
+# run a maven-packaged simple app
+
+mvn --quiet package
+
+nj=`find . -name '*.jar' |wc -l`
+jarfile=`find . -name '*.jar'`
+
+class=`find . -name '*.class'| xargs javap | awk '
+/public class/ {c = $3}
+$0=="  public static void main(java.lang.String[]);" {print c}
+'`
+
+if true; then
+echo nj=$nj
+echo jarfile=$jarfile
+echo class=$class
+fi
+
+if ! test -f $jarfile; then
+    echo ----------------
+    echo error, stopping
+    echo ----------------
+    exit 1
+fi
+
+echo 
+echo 
+echo 
+echo 
+
+echo java -cp $jarfile $class
+
+echo 
+echo 
+echo 
+echo 
+
+java -cp $jarfile $class

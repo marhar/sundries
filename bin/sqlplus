@@ -1,0 +1,5 @@
+#!/bin/sh
+
+ICDIR=/Users/mharrison/cx/instantclient/instantclient_11_2
+export DYLD_LIBRARY_PATH=$ICDIR:$DYLD_LIBRARY_PATH
+$ICDIR/sqlplus "$@"
