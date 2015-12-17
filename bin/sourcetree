@@ -1,0 +1,32 @@
+#!/bin/sh
+help="
+sourcetree -- open sourcetree or other git browser app on this git repo
+
+usage:
+    sourcetree [dir]
+
+default directory is current dir.
+"
+
+SOURCETREE=/Applications/SourceTree.app
+
+if test $# -eq 0; then
+    x=`pwd`
+else
+    x=$1
+fi
+
+while true; do
+    if test -d $x/.git; then
+        echo starting sourcetree on $x
+        open -a /Applications/SourceTree.app $x
+        exit 0
+    fi
+    x=`dirname $x`
+
+    if test $x = /; then
+        echo no .git directory found in this directory tree 1>&2
+        exit 1
+    fi
+
+done
