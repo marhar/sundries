@@ -3,7 +3,7 @@
 """
 http://www.fogcreek.com/FogBugz/docs/70/topics/advanced/API.html
 
-curl 'https://markharrison-devel.fogbugz.com/api.asp?cmd=logon&email=mh@pixar.com&password=eek123'
+curl 'https://mysite.fogbugz.com/api.asp?cmd=logon&email=myname@example.com&password=mypass'
 
 """
 
@@ -14,7 +14,7 @@ import fogbugz
 
 fbparser=fogbugz.FogBugzParser()
 fbconnection=fogbugz.FogBugzConnection(
-             'https://markharrison-devel.fogbugz.com','mh@pixar.com','eek123')
+             'https://mysite.fogbugz.com','myname@example.com','mypass')
 
 
 

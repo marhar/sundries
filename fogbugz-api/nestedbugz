@@ -21,9 +21,7 @@ def sendit(url,params=None):
 
 #--------------------------------------------------------------------------
 
-adm=['https://pxdmg.fogbugz.com','mh@pixar.com','eek123']
-adm=['https://markharrison-devel.fogbugz.com','mh@pixar.com','eek123']
-
+adm=['https://mysite.fogbugz.com','myname@example.com','mypass']
 
 #-------------------------------------------------- api
 resp=sendit('%s/api.xml'%(adm[0]))

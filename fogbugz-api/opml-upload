@@ -13,7 +13,7 @@ import fogbugz
 
 fbparser=fogbugz.FogBugzParser()
 fbconnection=fogbugz.FogBugzConnection(
-             'https://markharrison-devel.fogbugz.com','mh@pixar.com','eek123')
+             'https://mysite.fogbugz.com','myname@example.com','mypass')
 
 
 # ==================================================  clean this part up

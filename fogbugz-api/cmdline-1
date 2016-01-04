@@ -4,8 +4,8 @@
 #
 #
 
-FBCLI="/opt/fbcli/fbcli --url pxdmg.fogbugz.com
-                        --user mh@pixar.com
+FBCLI="/opt/fbcli/fbcli --url mysite.fogbugz.com
+                        --user myname@example.com
                         --password-file $HOME/.pxdmg"
 
 $FBCLI list
