@@ -25,16 +25,19 @@ if ! test -f $jarfile; then
     exit 1
 fi
 
-echo 
-echo 
-echo 
-echo 
-
-echo java -cp $jarfile $class
+EXTRA=/Users/mharrison/.m2/repository/commons-io/commons-io/2.4/commons-io-2.4.jar
+CP=$jarfile:$EXTRA
 
 echo 
 echo 
 echo 
 echo 
 
-java -cp $jarfile $class
+echo java -cp $CP $class
+
+echo 
+echo 
+echo 
+echo 
+
+java -cp $CP $class
