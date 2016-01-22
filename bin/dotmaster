@@ -1,0 +1,3 @@
+#!/bin/sh
+
+echo dotmaster -- manage dot and other files from git
