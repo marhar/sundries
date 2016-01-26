@@ -1,0 +1,39 @@
+#!/bin/bash
+help="
+superkaf -- start, stap, and query local kafka server
+usage:  superkaf start
+        superkaf stop
+        superkaf status
+"
+
+function ntab() {
+  TAB_NAME=$1
+  COMMAND=$2
+  osascript \
+    -e "tell application \"Terminal\"" \
+    -e "tell application \"System Events\" to keystroke \"t\" using {command down}" \
+    -e "do script \"printf '\\\e]1;$TAB_NAME\\\a'; $COMMAND\" in front window" \
+    -e "end tell" > /dev/null
+}
+
+KAFDIR=$HOME/kaf/inst/kafka_2.11-0.9.0.0
+
+if   test .$1 = .start;  then
+    echo starting...
+    ntab zookeeper "$KAFDIR/bin/zookeeper-server-start.sh $KAFDIR/config/zookeeper.properties; echo DONE, PRESS ENTER;read a;exit"
+    sleep 5
+    ntab kafka "$KAFDIR/bin/kafka-server-start.sh $KAFDIR/config/server.properties; echo DONE, PRESS ENTER;read a;exit"
+elif test .$1 = .stop;   then
+    echo stopping...
+    $KAFDIR/bin/kafka-server-stop.sh $KAFDIR/config/server.properties
+    $KAFDIR/bin/zookeeper-server-stop.sh $KAFDIR/config/zookeeper.properties
+elif test .$1 = .status; then
+    # hmm whats the best way to do this?
+    ps auxww|grep -v grep|egrep 'kafka.Kafka|org.apache.zookeeper.server.quorum.QuorumPeerMain'
+    ps auxww|grep -v grep|egrep 'kafka.Kafka|org.apache.zookeeper.server.quorum.QuorumPeerMain'|wc -l
+else
+    echo $help
+    exit 1
+fi
+
+
