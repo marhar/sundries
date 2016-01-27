@@ -1,9 +1,23 @@
 #!/bin/bash
+
+KAFDIR=$HOME/kaf/inst/kafka_2.11-0.9.0.0
+
 help="
 superkaf -- start, stap, and query local kafka server
 usage:  superkaf start
         superkaf stop
         superkaf status
+
+handy commands:
+
+$KAFDIR/bin/kafka-topics.sh --zookeeper localhost:2181 --list
+$KAFDIR/bin/kafka-topics.sh --zookeeper localhost --create --topic foo --replication-factor 1 --partitions 1
+$KAFDIR/bin/kafka-console-producer.sh --topic test --broker-list localhost:9091
+$KAFDIR/bin/kafka-console-producer.sh --broker-list localhost:9091 --topic foo
+
+$KAFDIR/bin/kafka-console-consumer.sh --new-consumer --bootstrap-server localhost:9092 --topic foo
+$KAFDIR/bin/kafka-console-consumer.sh --zookeeper localhost --topic foo
+
 "
 
 function ntab() {
@@ -16,13 +30,13 @@ function ntab() {
     -e "end tell" > /dev/null
 }
 
-KAFDIR=$HOME/kaf/inst/kafka_2.11-0.9.0.0
-
 if   test .$1 = .start;  then
-    echo starting...
+    echo starting zookeeper...
     ntab zookeeper "$KAFDIR/bin/zookeeper-server-start.sh $KAFDIR/config/zookeeper.properties; echo DONE, PRESS ENTER;read a;exit"
-    sleep 5
+    sleep 10
+    echo starting kafka...
     ntab kafka "$KAFDIR/bin/kafka-server-start.sh $KAFDIR/config/server.properties; echo DONE, PRESS ENTER;read a;exit"
+    $KAFDIR/bin/kafka-topics.sh --zookeeper localhost:2181 --list
 elif test .$1 = .stop;   then
     echo stopping...
     $KAFDIR/bin/kafka-server-stop.sh $KAFDIR/config/server.properties
@@ -31,8 +45,16 @@ elif test .$1 = .status; then
     # hmm whats the best way to do this?
     ps auxww|grep -v grep|egrep 'kafka.Kafka|org.apache.zookeeper.server.quorum.QuorumPeerMain'
     ps auxww|grep -v grep|egrep 'kafka.Kafka|org.apache.zookeeper.server.quorum.QuorumPeerMain'|wc -l
+    $KAFDIR/bin/kafka-topics.sh --zookeeper localhost:2181 --list
+elif test .$1 = .help; then
+    cat <<.
+    $help
+.
+    exit 0
 else
-    echo $help
+    cat <<.
+    $help
+.
     exit 1
 fi
 
