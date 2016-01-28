@@ -1,0 +1,35 @@
+#!/usr/bin/env python
+"""
+usage: redo-retention connstr table col
+"""
+
+import sys
+import cx_Oracle
+
+connstr=sys.argv[1]
+tab=sys.argv[2]
+col=sys.argv[3]
+
+# ORA-01555: snapshot too old: ...
+# ORA-08180: no snapshot found based on specified time
+# ORA-01466: unable to read data - table definition has changed
+
+
+snapnums=[1555,8180]
+tblchange=[1466]
+
+conn=cx_Oracle.connect(connstr)
+curs=conn.cursor()
+cmd='select %s from %s as of timestamp sysdate-(:1/24)  where id=-99'%(col,tab)
+
+for hours in range(24*30):
+    try:
+        curs.execute(cmd,[hours])
+    except cx_Oracle.DatabaseError,e:
+        if e.message.code in snapnums:
+            print hours-1, 'OK'
+        elif e.message.code in tblchange:
+            print hours-1, 'TBLCHANGE'
+        else:
+            print e
+        break
