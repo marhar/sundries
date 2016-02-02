@@ -1,0 +1,54 @@
+#!/bin/bash
+
+KAFDIR=$HOME/kaf/confluent-2.0.0
+export PATH=$KAFDIR/bin:$PATH
+
+if test . = .$KAFKA; then
+    echo 'need to set $KAFKA'
+    echo 'put config files in $HOME/.kafka'
+    ls -l $HOME/.kafka
+    exit 1
+fi
+
+CONFIG=$HOME/.kafka/$KAFKA
+
+if ! test -f $CONFIG; then
+    echo cant find config file: $CONFIG
+    exit 1
+fi
+
+. $HOME/.kafka/$KAFKA
+echo ZOOKEEPER=$ZOOKEEPER
+echo KAFKA_SERVER=$KAFKA_SERVER
+echo
+
+#---------------------------------------------------------------
+if test .$1 = .list; then
+    shift
+    kafka-topics --zookeeper $ZOOKEEPER --list
+#---------------------------------------------------------------
+elif test .$1 = .describe; then
+    shift
+    topic=$1
+    shift
+    echo describing: $topic
+    kafka-topics --zookeeper $ZOOKEEPER --topic $topic --describe $*
+#---------------------------------------------------------------
+elif test .$1 = .produce; then
+    shift
+    topic=$1
+    shift
+    echo producing: $topic
+    kafka-console-producer --broker-list $KAFKA_SERVER --topic $topic $*
+#---------------------------------------------------------------
+elif test .$1 = .consume; then
+    shift
+    topic=$1
+    shift
+    echo consuming: $topic
+    kafka-console-consumer --new-consumer --bootstrap-server $KAFKA_SERVER --topic $topic $*
+#---------------------------------------------------------------
+else
+    echo BAD COMMAND: $1
+    exit 1
+fi
