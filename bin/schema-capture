@@ -1,14 +1,16 @@
 #!/bin/sh
 help="
 schema-capture -- capture oracle schema to git
+usage: schema-capture schema-name database-name
 "
 
-BIN=/Users/mharrison/cx/src/cx_OracleTools-8.0/bin
-GITBASE=$HOME/l/schema-history
+JIRA_TICKET=AR-994              # for checkins that require JIRA ticket ID
+GITBASE=$HOME/l/schema-history  # git-controlled working directory
+CAP=schemacap/schemacap         # capture login.
+                                # should ONLY have SELECT_CATALOG_ROLE
 
-# for now, only work with foo/foo@db
-# later, add connect string info? what about passwd?
-# can we run from single schema and dump other schema?
+BIN=/Users/mharrison/cx/src/cx_OracleTools-8.0/bin
+
 if test $# -eq 2; then
     schema=$1
     database=$2
@@ -19,15 +21,15 @@ else
 fi
 
 WORKDIR=$GITBASE/db/$database
-connstr=$schema/$schema@$database
-nopw_connstr=$schema@$database
 
 echo ==================================================== configuration
-echo ==================================================== $nopw_connstr
+echo JIRA_TICKET=$JIRA_TICKET
+echo GITBASE=$GITBASE
+
+echo ==================================================== $schema@$database
 echo WORKDIR=$WORKDIR
 echo schema=$schema
 echo database=$database
-echo connection=$nopw_connstr
 
 echo --------------------------------------------------------- starting
 
@@ -51,17 +53,33 @@ else
     exit 1
 fi
 
+# protect against login failure
+x=`$BIN/DescribeObject --schema=$CAP@$database --use-dba-views --default-tablespace --default-storage DOES_NOT_EXIST 2>&1|grep does_not_exist|wc -l`
+
+if test $x -ne 1; then
+    echo error logging in
+    $BIN/DescribeObject --schema=$CAP@$database --use-dba-views --default-tablespace --default-storage DOES_NOT_EXIST
+    exit 1
+fi
+
 echo --------------------------------------------------------- cleaning
 rm -rf $schema
 
 echo -------------------------------------------------------- exporting
-$BIN/ExportObjects --default-tablespace --default-storage --schema=$connstr
+FULLNAME=$schema/full-$schema.sql
+echo pwd=`pwd`
+echo FULLNAME=$FULLNAME
+$BIN/ExportObjects --use-dba-views --default-tablespace --default-storage --name=$schema --schema=$CAP@$database
+rm -f $FULLNAME
+$BIN/DescribeSchema --use-dba-views --default-tablespace --default-storage --name=$schema --schema=$CAP@$database >$FULLNAME
+#git add $FULLNAME
 
 echo ----------------------------------------------------------- status
+echo git add $schema
 git add $schema
 git status --porcelain
 
 echo ------------------------------------------------------- committing
-git commit -m "AR-994 updated: $nopw_connstr"
+git commit -m "$JIRA_TICKET updated: $schema@$database"
 echo ---------------------------------------------------------- pushing
 git push
