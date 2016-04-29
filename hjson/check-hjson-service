@@ -1,0 +1,36 @@
+#!/usr/bin/env python
+"""
+hjson checker, microservice
+
+$ curl http://localhost:5000/check -F file=@good.hjson
+$ curl http://localhost:5000/check -F file=@bad.hjson
+
+"""
+
+import sys
+import hjson
+
+from flask import Flask
+from flask import request
+app = Flask(__name__)
+
+@app.route("/check",methods=['GET', 'POST'])
+def check():
+    if request.files.has_key('file'):
+        f = request.files['file']
+        body=f.stream.read()
+        try:
+            j = hjson.loads(body)
+            return "json OK\n"
+        except hjson.scanner.HjsonDecodeError, e:
+            return "hjson error:\n\n%s\n"%(str(e))
+    else:
+        return "try: curl http://localhost:5000/check -F file=@myfile.hjson\n"
+
+
+if __name__ == "__main__":
+    app.debug = True
+    app.run()
+
+
+
