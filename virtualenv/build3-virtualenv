@@ -1,0 +1,21 @@
+#!/bin/sh
+# build 3 - virtualenv
+
+if test $# -ne 1; then
+    echo usage: $0 envname
+    exit 1
+fi
+
+ENVNAME=$1
+
+echo setting up virtualenv $ENVNAME
+
+./bin/virtualenv $ENVNAME
+source $ENVNAME/bin/activate
+
+pip -q install hjson
+pip -q install flask
+pip -q install cx_Oracle
+pip -q install boto
+pip -q install requests
+pip -q install readline
