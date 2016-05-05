@@ -1,18 +1,22 @@
 #!/usr/bin/env python
 """
-hjson checker, microservice
-
-$ curl http://localhost:5000/check -F file=@good.hjson
-$ curl http://localhost:5000/check -F file=@bad.hjson
+hjson check service.
+try something like:
+    $ curl http://localhost:5000/check -F file=@good.hjson
+    $ curl http://localhost:5000/check -F file=@bad.hjson
 
 """
 
 import sys
 import hjson
-
 from flask import Flask
 from flask import request
+
 app = Flask(__name__)
+
+@app.route("/")
+def top():
+    return __doc__
 
 @app.route("/check",methods=['GET', 'POST'])
 def check():
