@@ -1,7 +1,0 @@
-# mark's handy aliases
-
-alias gitwhat="git status | sed -n -e '/Changes to be committed:/,/Changes not staged for commit:/p'"
-alias pb='pbpaste|pbcopy'
-alias myip='curl ip.appspot.com; echo'
-alias ffind='find . -type f'
-alias du2="du -k . | awk -F/ 'NF<3' | sort -n"
