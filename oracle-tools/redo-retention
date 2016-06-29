@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 """
-usage: redo-retention connstr table col
+usage: redo-retention connstr table
 """
 
 import sys
@@ -8,7 +8,6 @@ import cx_Oracle
 
 connstr=sys.argv[1]
 tab=sys.argv[2]
-col=sys.argv[3]
 
 # ORA-01555: snapshot too old: ...
 # ORA-08180: no snapshot found based on specified time
@@ -20,7 +19,7 @@ tblchange=[1466]
 
 conn=cx_Oracle.connect(connstr)
 curs=conn.cursor()
-cmd='select %s from %s as of timestamp sysdate-(:1/24)  where id=-99'%(col,tab)
+cmd='select rownum from %s as of timestamp sysdate-(:1/24)  where rownum<0'%(tab)
 
 for hours in range(24*30):
     try:

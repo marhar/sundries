@@ -1,0 +1,95 @@
+#!/bin/sh
+
+TOPS="$HOME/g $HOME/l"
+GITNAME=marhar
+
+help="
+supergit runs across multiple git depots.
+configure the TOPS variable to be the directory where you check out repos.
+Your config:
+    TOPS=$TOPS
+    GITNAME=$GITNAME
+
+commands:
+    help    -- print this message
+    attention [-q] -- what needs your attention?
+    needspush -- what repos need a push?
+    notmine -- show which repos aren't cloned from your own github repos
+
+    list    -- list repos under \$TOP
+    sow     -- state of the world
+
+any other command is invoked in every git repo.  It's useful for things
+like this:
+    supergit push
+    supergit status -s
+
+or things like this, if you want to set parameters in each repo and
+not in your global git config:
+    supergit config --global color.ui false
+"
+# push -n
+# GIT_ASKPASS=true supergit push -n
+
+#-----------------------------------------------------------------------
+if test $# -eq 0; then
+    cat <<.
+$help
+.
+
+#-----------------------------------------------------------------------
+elif test $1. = help.; then
+    cat <<.
+$help
+.
+
+#-----------------------------------------------------------------------
+elif test $1. = notmine.; then
+    # which repos don't have a base that belongs to me
+    supergit config --list|grep remote.origin.url|grep -v github.com:$GITNAME
+
+#-----------------------------------------------------------------------
+elif test $1. = list.; then
+    for TOP in $TOPS; do
+        cd $TOP
+        for i in *;do
+            if test -f $i/.git/config; then
+                echo $i
+            else
+                echo $i NOT A GIT REPO
+            fi
+        done
+    done
+
+#-----------------------------------------------------------------------
+elif test $1. = sow.; then
+    echo TODO: SOW
+
+#-----------------------------------------------------------------------
+elif test $1. = attention.; then
+    # attention -q for quieter mode
+    if test $2. = -q.; then
+        (supergit status -s;supergit needspush)|sort|grep -v ==========
+    else
+        (supergit status -s;supergit needspush)|sort
+    fi
+
+#-----------------------------------------------------------------------
+elif test $1. = needspush.; then
+    supergit status|grep 'Your branch'|grep -v up-to-date
+
+#-----------------------------------------------------------------------
+else
+# run over all git repos
+WID=`(for TOP in $TOPS; do cd $TOP;for i in *; do echo $i|wc -c; done;done)|sort -n|tail -1|sed 's/ //g'`
+
+for TOP in $TOPS; do
+    for i in $TOP/*; do
+        B=`basename $i`
+        B2=`printf "%-${WID}s" $B`
+        echo ================================================ | sed "s/^/$B2/"
+        cd $i || exit 1
+        git "$@" 2>&1 | sed "s/^/$B2/"
+    done
+done
+fi

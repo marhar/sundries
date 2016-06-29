@@ -1,23 +1,8 @@
 Here's some quick kafka tools.  I'm using Confluent Kafka which
 differs from Apache Kafka in some command names, etc.
 
-kaft -- kafka tool
-==================
-
-
-configuration
--------------
-
-by example:
-
-```
-# point kaft to the instance running on the local computer
-export KAFKA=localhost
-cd $HOME/.kafka
-.kafka $ cat localhost 
-ZOOKEEPER=localhost:2181
-KAFKA_SERVER=localhost:9091
-```
+note: gradually moving everything to its own repo:
+https://github.com/marhar/kafka
 
 superkaf -- local instance laptop convenience 
 =============================================
