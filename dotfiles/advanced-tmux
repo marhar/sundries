@@ -1,0 +1,190 @@
+##############################
+# General
+##############################
+# use C-a instead of C-b
+set-option -g prefix C-a
+bind-key C-a send-prefix
+
+# Allows for faster key repetition
+set -g repeat-time 0
+
+# reload ~/.tmux.conf using PREFIX r
+bind r source-file ~/.tmux.conf \; \
+  display-message "sourced ~/.tmux.conf"
+
+# bind : to command-prompt like vim
+# this is the default in tmux already
+bind : command-prompt
+
+setw -g aggressive-resize on
+set -g history-limit 1000000
+
+# disable mouse entirely
+set -g terminal-overrides 'xterm*:smcup@:rmcup@'
+#set -g mode-mouse off
+#set -g mouse-resize-pane off
+#set -g mouse-select-pane off
+#set -g mouse-select-window off
+
+##############################
+# Copy/Paste
+##############################
+# fix copy paste in tmux
+#set-option -g default-command "reattach-to-user-namespace -l bash"
+
+# vi-style controls for copy mode
+setw -g mode-keys vi
+
+# vim copy selection
+bind-key -t vi-copy 'v' begin-selection # Begin selection in copy mode.
+bind-key -t vi-copy 'V' rectangle-toggle # Begin selection in copy mode.
+bind-key -t vi-copy 'y' copy-selection # Yank selection in copy mode.
+
+# copy from buffer
+bind C run-shell "tmux show-buffer | xclip -sel clip -i"
+# move tmux copy buffer into x clipboard
+#bind C-y run "tmux save-buffer - | xclip -i"
+#bind -t vi-copy y copy-pipe "xclip"
+# move x clipboard into tmux paste buffer
+#bind V run "tmux set-buffer \"$(xclip -o)\"; tmux paste-buffer"
+#bind C-y run "tmux save-buffer - | xclip -i"
+
+##############################
+# Windows/Panes
+##############################
+# rebind split window commands
+bind C-v split-window -h
+bind C-f split-window -v
+#tmux split-window -v "exec g4d $(tmux display-message -p '#W')"
+
+
+# vim-like hjkl binding for moving between panes
+bind C-j select-pane -D
+bind C-k select-pane -U
+bind C-h select-pane -L
+bind C-l select-pane -R
+
+# resize panes using PREFIX H, J, K, L
+bind H resize-pane -L 10
+bind J resize-pane -D 10
+bind K resize-pane -U 10
+bind L resize-pane -R 10
+
+# rotate
+bind ^R rotate-window -D
+
+# screen-like window navigation
+bind ^C new-window
+bind ^N next-window
+bind ^P previous-window
+#bind ^D detach-client
+#bind ^O last-window
+
+# Swap window using PREFIX S
+bind S command-prompt "swap-window -t '%%'"
+
+##############################
+# Visual
+##############################
+# Set window notifications
+setw -g monitor-activity on
+set -g visual-activity off
+
+# Automatically set window title
+setw -g automatic-rename on
+
+# alert message line
+set -g message-fg black
+set -g message-bg green
+
+# index start from 1
+set -g base-index 1
+
+set-option -g display-time 1500
+
+##############################
+# Colors (Solarized 256)
+##############################
+# 256 color
+set -g default-terminal "xterm-256color"
+
+# default statusbar colors
+set-option -g status-bg colour235 #base02
+set-option -g status-fg colour136 #yellow
+set-option -g status-attr default
+
+# default window title colors
+set-window-option -g window-status-fg colour244 #base0
+set-window-option -g window-status-bg default
+set-window-option -g window-status-attr dim
+
+# active window title colors
+set-window-option -g window-status-current-fg colour166 #orange
+set-window-option -g window-status-current-bg default
+set-window-option -g window-status-current-attr bright
+
+# message text
+set-option -g message-bg colour235 #base02
+set-option -g message-fg colour166 #orange
+
+# pane number display
+set-option -g display-panes-active-colour colour33 #blue
+set-option -g display-panes-colour colour166 #orange
+
+# clock
+set-window-option -g clock-mode-colour colour64 #green
+
+# set pane colors - hilight the active pane
+set-option -g pane-border-fg colour33 #base02
+set-option -g pane-active-border-fg colour64 #base01
+
+# colorize messages in the command line
+set-option -g message-bg black #base02
+set-option -g message-fg brightred #orange
+
+# status line
+set -g status-left "[#S]"
+set -g status-right "#{prefix_highlight} #[fg=white,bg=black] CPU: #{cpu_percentage} Online: #{online_status} #{net_speed} | %Y.%m.%d #[default] "
+set -g status-right-length 100
+
+## copy selection color
+#setw -g mode-fg black
+#setw -g mode-bg green
+
+#set-window-option -g window-status-current-bg '#444444'
+#set-window-option -g window-status-current-fg white
+
+
+#############################
+# Plugin Manager Configs
+##############################
+# List of plugins
+set -g @plugin 'tmux-plugins/tpm'
+set -g @plugin 'tmux-plugins/tmux-resurrect'
+set -g @plugin 'tmux-plugins/tmux-continuum'
+#set -g @plugin 'tmux-plugins/tmux-sidebar'
+#set -g @plugin 'tmux-plugins/tmux-logging'
+set -g @plugin 'tmux-plugins/tmux-cpu'
+set -g @plugin 'tmux-plugins/tmux-online-status'
+set -g @plugin 'tmux-plugins/tmux-prefix-highlight'
+set -g @plugin 'tmux-plugins/tmux-net-speed'
+set -g @plugin 'tmux-plugins/tmux-yank'
+set -g @plugin 'jbnicolai/tmux-fpp'
+
+# Plugin confs
+set -g @continuum-boot 'on'
+set -g @continuum-restore 'on'
+set -g @resurrect-capture-pane-contents 'on'
+set -g @sidebar-tree-command 'tree -C'
+set -g @continuum-save-interval '60'
+
+# Plugin keys
+# prefix + shift + p          Log pane to file
+# prefix + cmd + p            Capture pane contents to file
+# prefix + cmd + shift + p    Save all pane history
+#
+# prefix + Tab                Toggle file browser sidebar
+
+# Initialize TMUX plugin manager
+# KEEP THIS LINE AT THE VERY BOTTOM OF tmux.conf
+run '~/.tmux/plugins/tpm/tpm'
