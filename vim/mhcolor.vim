@@ -1,30 +1,10 @@
-" Vim color file
-" Maintainer:	Thorsten Maerz <info@netztorte.de>
-" Last Change:	2006 Dec 07
-" grey on black
-" optimized for TFT panels
+" mhcolor.vim : Vim color file
+" Maintainer  :	Mark Harrison (marhar@gmail.com)
+" optimized for red-colorblind
 
-set background=dark
-hi clear
-if exists("syntax_on")
-  syntax reset
-endif
-"colorscheme default
 let g:colors_name = "mhcolor"
-
-" hardcoded colors :
-" GUI Comment : #80a0ff = Light blue
-
-" GUI
-highlight Normal     guifg=Grey80	guibg=Black
-highlight Search     guifg=Black	guibg=Red	gui=bold
-highlight Visual     guifg=#404040			gui=bold
-highlight Cursor     guifg=Black	guibg=Green	gui=bold
-highlight Special    guifg=Orange
-highlight Comment    guifg=LightBlue
-highlight StatusLine guifg=blue		guibg=white
-highlight Statement  guifg=Yellow			gui=NONE
-highlight Type						gui=NONE
+set background=dark
+syntax reset
 
 " Console
 highlight Normal     ctermfg=Green	ctermbg=Black
@@ -36,17 +16,22 @@ highlight Comment    ctermfg=LightBlue
 highlight StatusLine ctermfg=blue	ctermbg=white
 highlight Statement  ctermfg=Yellow			cterm=NONE
 highlight Constant  ctermfg=LightBlue			cterm=NONE
-highlight MatchParen cterm=bold ctermbg=black
+highlight MatchParen cterm=underline ctermfg=White ctermbg=Black
 highlight Type			cterm=NONE
+highlight Pmenu      ctermfg=White ctermbg=Blue
+highlight PmenuSel   ctermfg=Black ctermbg=LightBlue
 
-" only for vim 5
-if has("unix")
-  if v:version<600
-    highlight Normal  ctermfg=Grey	ctermbg=Black	cterm=NONE	guifg=Grey80      guibg=Black	gui=NONE
-    highlight Search  ctermfg=Black	ctermbg=Red	cterm=bold	guifg=Black       guibg=Red	gui=bold
-    highlight Visual  ctermfg=Black	ctermbg=yellow	cterm=bold	guifg=#404040			gui=bold
-    highlight Special ctermfg=LightBlue			cterm=NONE	guifg=LightBlue			gui=NONE
-    highlight Comment ctermfg=Cyan			cterm=NONE	guifg=LightBlue			gui=NONE
-  endif
-endif
-
+" GUI -- just copied and :s/cterm/gui/g
+highlight Normal     guifg=Green	guibg=Black
+highlight Search     guifg=Black	guibg=Red	gui=NONE
+highlight Visual					gui=reverse
+highlight Cursor     guifg=Black	guibg=Green	gui=bold
+highlight Special    guifg=Brown
+highlight Comment    guifg=LightBlue
+highlight StatusLine guifg=blue	guibg=white
+highlight Statement  guifg=Yellow			gui=NONE
+highlight Constant  guifg=LightBlue			gui=NONE
+highlight MatchParen gui=underline guifg=White guibg=Black
+highlight Type			gui=NONE
+highlight Pmenu      guifg=White guibg=Blue
+highlight PmenuSel   guifg=Black guibg=LightBlue
