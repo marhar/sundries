@@ -1,0 +1,4 @@
+#!/bin/sh
+
+KBIN=/Users/mharrison/kaf/inst/kafka_2.11-0.9.0.0/bin
+$KBIN/kafka-topics.sh --zookeeper ggkafdev.tlcinternal.com --list

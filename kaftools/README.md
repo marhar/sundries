@@ -1,3 +1,14 @@
+Here's some quick kafka tools.  I'm using Confluent Kafka which
+differs from Apache Kafka in some command names, etc.
+
+note: gradually moving everything to its own repo:
+https://github.com/marhar/kafka
+
+superkaf -- local instance laptop convenience 
+=============================================
+
+I'll roll this into kaft later.
+
 Here's a quick tool that makes it handy to play with a local kafka
 on a mac.
 

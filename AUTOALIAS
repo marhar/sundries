@@ -1,0 +1,12 @@
+bin/junkdir
+bin/junkdirs
+bin/mh-mvn-generate
+bin/mkautoalias
+
+bin/mvntool
+bin/rssgen
+bin/schema-capture
+bin/sourcetree
+bin/sqlplus
+bin/supergit
+bin/termtitle

@@ -1,0 +1,40 @@
+#!/bin/sh
+# build 1
+#  - build python
+#  - get pip
+#  - install virtualenv
+
+DIST=./dist
+PYTGZ=Python-2.7.11.tgz
+
+D=`pwd`
+
+echo Building for $D
+
+if test ! -h bin/python; then
+    echo building python...
+    test -d src || mkdir src
+    (cd src && tar xzf ../$DIST/$PYTGZ)
+
+    PYSRC=`echo $D/src/Python*`
+    echo $PYSRC
+
+    (cd $PYSRC && ./configure --prefix=$D)
+    (cd $PYSRC && make -j12 install) 
+else
+    echo python exists
+fi
+
+if test ! -f bin/pip; then
+    echo getting pip
+    ./bin/python ./dist/get-pip.py
+else
+    echo pip exists
+fi
+
+if test ! -f bin/virtualenv; then
+    echo getting virtualenv
+    ./bin/pip install virtualenv
+else
+    echo virtualenv exists
+fi

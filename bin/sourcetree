@@ -19,7 +19,8 @@ fi
 while true; do
     if test -d $x/.git; then
         echo starting sourcetree on $x
-        open -a /Applications/SourceTree.app $x
+        open -a SourceTree $x
+        #open -a /Applications/SourceTree.app $x
         exit 0
     fi
     x=`dirname $x`

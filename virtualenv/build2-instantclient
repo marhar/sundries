@@ -1,0 +1,18 @@
+#!/bin/sh
+# build 2
+#  - install instantclient
+
+DIST=./dist
+INSTZIP=instantclient-basic-linux.x64-12.1.0.2.0.zip
+TESTFILE=instantclient_12_1/libclntsh.so.12.1
+
+D=`pwd`
+
+if test ! -f $TESTFILE; then
+    echo unzipping instantclient...
+    unzip -q dist/$INSTZIP
+else
+    echo instantclient exists
+fi
+
+### LD_LIBRARY_PATH=./instantclient_12_1 ./myvirtual/bin/python

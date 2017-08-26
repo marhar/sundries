@@ -1,0 +1,41 @@
+#!/usr/bin/env python
+"""
+check-hjson check syntax for an hjson file, print results
+
+to add hjson module:  pip install hjson
+"""
+
+import sys, argparse, json, pprint
+import hjson
+
+def main():
+    p = argparse.ArgumentParser()
+    p.add_argument("--json", action='store_true', help="dump formatted json")
+    p.add_argument("--quiet", action='store_true', help="run quietly")
+    p.add_argument('file', nargs='*')
+
+    args=p.parse_args()
+    if len(args.file) == 0:
+        p.print_help()
+        sys.exit(1)
+
+    for file in args.file:
+
+        if not args.quiet:
+            print '%s:'%file
+
+        body=open(file).read()
+        try:
+            obj = hjson.loads(body)
+            if not args.quiet:
+                print "ok"
+        except hjson.scanner.HjsonDecodeError, e:
+            print >>sys.stderr, 'error (line %d, col %d): %s' % \
+                                     (e.lineno, e.colno, e.msg)
+
+        if args.json:
+            do=dict(obj)
+            print json.dumps(do, indent=2, separators=(',', ': '))
+
+if __name__ == '__main__':
+    main()
