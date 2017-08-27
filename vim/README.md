@@ -1,5 +1,3 @@
-to ~/.vim/colors:
+mhcolor.vim to ~/.vim/colors
 
-mhcolor.vim
-delek.vim
-delek2.vim
+vimrc to ~/.vimrc
