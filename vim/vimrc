@@ -12,12 +12,12 @@ set tabstop=4 shiftwidth=4 expandtab
 "-----------------------------------------------------------------------
 " Plugins
 "-----------------------------------------------------------------------
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#rc()
 
-Bundle 'gmarik/vundle'
-Bundle 'Valloric/YouCompleteMe'
-Plugin 'fatih/vim-go'
+call plug#begin()
+Plug 'fatih/vim-go'
+"Plug 'Valloric/YouCompleteMe'
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+call plug#end()
 
 "-----------------------------------------------------------------------
 " Appearance and Input
@@ -31,8 +31,7 @@ colorscheme mhcolor
 map <leader>a  :call SyntaxAttr()<CR>
 
 ""hmm figure out some good function keys
-" F2 - close other windows
-" \1 - close other windows
+" F2, \1 - close other windows
 map <F2> :only<CR>
 imap <F2> <Esc>:only<CR>a
 map <leader>1 :only<CR>
