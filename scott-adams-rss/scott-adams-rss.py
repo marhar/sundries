@@ -1,7 +1,8 @@
 #!/usr/bin/python
 
 import datetime 
-from rfeed import *
+import os
+import rfeed
 import urllib
 from BeautifulSoup import BeautifulSoup
 
@@ -9,6 +10,7 @@ url = 'http://blog.dilbert.com'
 
 def main():
     #html=urllib.urlopen(url).read()
+    os.system('curl -s '+url+' >aa')
     html = open('aa').read()
     soup = BeautifulSoup(html)
     item_list = []
@@ -16,19 +18,19 @@ def main():
         a = audio.findAll('a')[0]
         href = a['href']
 
-        item_list.append(Item(
-            title = "Sample article",
+        item_list.append(rfeed.Item(
+            title = href,
             link = href,
-            description = "This is the description of the first article",
+            description = "fake description",
             author = "Scott Adams",
-            guid = Guid(href),
+            guid = rfeed.Guid(href),
             pubDate = datetime.datetime(2014, 12, 29, 10, 00),
-            enclosure = Enclosure(url=href, length=0, type='')))
+            enclosure = rfeed.Enclosure(url=href, length=0, type='')))
 
-    feed = Feed(
-        title = "Sample Podcast RSS Feed",
-        link = "http://www.example.com/rss",
-        description = "An example of how to generate an RSS 2.0 feed",
+    feed = rfeed.Feed(
+        title = "Scott Adams",
+        link = "http://markharrison.net/sa.rss",
+        description = "Words of Scott Adams",
         language = "en-US",
         lastBuildDate = datetime.datetime.now(),
         items = item_list
