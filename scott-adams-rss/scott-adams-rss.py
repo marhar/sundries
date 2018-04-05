@@ -17,11 +17,11 @@ def main():
     for audio in soup.findAll('audio'):
         a = audio.findAll('a')[0]
         href = a['href']
+        title = os.path.basename(href).replace('-', ' ')
 
         item_list.append(rfeed.Item(
-            title = href,
+            title = title,
             link = href,
-            description = "fake description",
             author = "Scott Adams",
             guid = rfeed.Guid(href),
             pubDate = datetime.datetime(2014, 12, 29, 10, 00),
