@@ -4,6 +4,7 @@ import datetime
 import os
 import rfeed
 import urllib
+import xml.dom.minidom
 from BeautifulSoup import BeautifulSoup
 
 url = 'http://blog.dilbert.com'
@@ -24,7 +25,7 @@ def main():
             link = href,
             author = "Scott Adams",
             guid = rfeed.Guid(href),
-            pubDate = datetime.datetime(2014, 12, 29, 10, 00),
+            #pubDate = datetime.datetime(2014, 12, 29, 10, 00),
             enclosure = rfeed.Enclosure(url=href, length=0, type='')))
 
     feed = rfeed.Feed(
@@ -35,6 +36,7 @@ def main():
         lastBuildDate = datetime.datetime.now(),
         items = item_list
     )
-    print(feed.rss())
+    print xml.dom.minidom.parseString(feed.rss()).toprettyxml(indent='  ')
+
 
 main()
