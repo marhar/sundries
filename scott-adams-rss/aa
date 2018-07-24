@@ -1,0 +1,1275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link href='https://fonts.googleapis.com/css?family=Raleway:800' rel='stylesheet' type='text/css'>
+<link href="http://dilbert.com/assets/favicon/apple-touch-icon-57x57-1df7927649aa3f61ed9d80b52a6f94f3.png" rel="apple-touch-icon" sizes="57x57" type="image/png" />
+<link href="http://dilbert.com/assets/favicon/apple-touch-icon-114x114-8e77ddbd35287d8f496454bf22881116.png" rel="apple-touch-icon" sizes="114x114" type="image/png" />
+<link href="http://dilbert.com/assets/favicon/apple-touch-icon-72x72-4843dfe197dd461afa3fb8dd6bb9a214.png" rel="apple-touch-icon" sizes="72x72" type="image/png" />
+<link href="http://dilbert.com/assets/favicon/apple-touch-icon-144x144-7dc2b7a80a2fe9d5b732c76d34834b56.png" rel="apple-touch-icon" sizes="144x144" type="image/png" />
+<link href="http://dilbert.com/assets/favicon/apple-touch-icon-60x60-6757073b49b5fbaab43bfa3ef878df8b.png" rel="apple-touch-icon" sizes="60x60" type="image/png" />
+<link href="http://dilbert.com/assets/favicon/apple-touch-icon-120x120-407cab397ee79420e483dfc5ded7b8e5.png" rel="apple-touch-icon" sizes="120x120" type="image/png" />
+<link href="http://dilbert.com/assets/favicon/apple-touch-icon-76x76-30bfd9ad21a603dba89b358537922ad1.png" rel="apple-touch-icon" sizes="76x76" type="image/png" />
+<link href="http://dilbert.com/assets/favicon/apple-touch-icon-152x152-986c0608be7b1833e7879223dd385ba3.png" rel="apple-touch-icon" sizes="152x152" type="image/png" />
+<link href="http://dilbert.com/favicon/favicon-196x196.png" rel="icon" sizes="196x196" type="image/png" />
+<link href="http://dilbert.com/assets/favicon/favicon-160x160-09877d9c95a51f5a68478feec7f2c044.png" rel="icon" sizes="160x160" type="image/png" />
+<link href="http://dilbert.com/assets/favicon/favicon-96x96-8771089ca31b4452c17c2fe542e5c4e7.png" rel="icon" sizes="96x96" type="image/png" />
+<link href="http://dilbert.com/assets/favicon/favicon-32x32-315231444d4e5efbae50240a790c83b8.png" rel="icon" sizes="32x32" type="image/png" />
+<link href="http://dilbert.com/assets/favicon/favicon-16x16-fc63d4c2b35cde4cfbf254e2ac7eada3.png" rel="icon" sizes="16x16" type="image/png" />
+<link href="http://dilbert.com/assets/favicon/favicon-ac6c84d3566b07bee4be68b6d77e33bb.ico" rel="shortcut icon" type="image/vnd.microsoft.icon" />
+<meta name="twitter:creator" content="ScottAdamsSays">
+
+
+<!-- Global Meta Tags -->
+<meta charset="UTF-8">
+<meta name=viewport content='width=device-width, initial-scale=1'>
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+<meta name="keywords" content="Dilbert, Scott Adams, Blog">
+<meta name="text:ShareImage" content="http://static.tumblr.com/oqfkeha/krSohlbkc/scott-adams-headshot-small.jpg"/>
+
+<meta name="description" content="The blog of Scott Adams, the author and creator of Dilbert">
+
+<!-- Custom Variables -->
+<meta name="image:Logo" content="http://dilbert.com/assets/dilbert-logo-f0d95bc0c1f3dd1361bcee8b0f8646aa.png"/>
+<meta name="text:Colophon" content="Scott Adams' Blog"/>
+<!-- Temporarily disabling comments per request -->
+<meta name="text:Disqus" content="scottadamsblog"/>
+<!-- <meta name="text:Disqus" content="dilberttest"/> -->
+
+<link rel="alternate" type="application/rss+xml" href="{RSS}">
+
+  <meta name="google-site-verification" content="iMe_GbOppnxshIHn7KwTW8Eey9Lfzflvc9NrzGPoewI" />
+  <link rel="stylesheet" media="all" href="http://dilbert.com/assets/global-icons-727fcd3f2547c03c25d8489c83d3f410.css" /> 
+  <link rel="stylesheet" media="all" href="http://dilbert.com/assets/application-05b48d4cda7ee2ddf5e3abd18b828731.css" />
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+	body.admin-bar {
+		position: relative;
+	}
+  @media only screen and (min-width: 767px) {
+    .blog-posts-social-nav {
+      left: 15px;
+    }
+  }
+  .nav-right:empty {
+    display: none;
+  }
+  .blog-nav {
+    list-style-type: none;
+    display: flex;
+  }
+  .blog-nav-filler {
+    flex: 1 auto;
+    border-color: #eeeeee;
+  }
+  .input-group-btn:last-child>.btn {
+    border-radius: 0 5px 5px 0;
+  }
+  .section-sidebar {
+    border-bottom: 1px solid #eee;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+  }
+  a.tag-cloud-link {
+    border: 1px solid #eee;
+    display: inline-block;
+    padding: 3px 5px;
+    font-size: 14px !important;
+    color: #666;
+    margin-bottom: 4px;
+    text-transform: capitalize;
+  }
+  .hdr-sm {
+    font-size: 14px;
+  }
+  .list-search-results h1 {
+    font-size: 18px;
+    margin-bottom: 5px;
+  }
+  .list-search-results .blog-post-meta {
+    font-size: 13px;
+    font-weight: normal;
+    margin-bottom: 20px;
+  }
+  .not-found {
+    text-align: center;
+  }
+  .mt-0 {
+    margin-top: 0 !important;
+  }
+  @media only screen and (max-width: 767px) {
+    .container-blog {
+      clear: left;
+    }
+    .section-sidebar {
+      margin-left: 15px;
+      margin-right: 15px;
+    }
+    .blog-nav {
+      padding-left: 65px;
+      min-height: auto;
+    }
+    .blog-nav-featured h1 {
+      font-size: 20px;
+    }
+    .blog-nav-featured img {
+      width: 50px;
+    }
+    .blog-nav-featured .blog-nav-link {
+      padding-right: 20px;
+    }
+    .blog-nav-item:last-child {
+      margin-right: 0;
+    }
+  }
+  .relatedposts h3 {
+    font-family: "Raleway", Helvetica, Arial, sans-serif;
+    font-weight: 800;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 0;
+  }
+  .related-posts {
+    padding-right: 40px;
+    padding-bottom: 50px;
+    padding-left: 40px;
+    margin-bottom: 0;
+    margin-left: 10px;
+
+  }
+  .related-post-item {
+    border-bottom: 1px solid #e8dcdb;
+    padding-bottom: 15px;
+    font-weight: bold;
+    font-size: 30px;
+    line-height: 20px;
+    margin-bottom: 15px;
+    margin-left: 0;
+    padding-left: 0;
+  }
+  .related-post-link {
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 24px;
+    color: #444;
+  }
+  </style>
+
+<!-- // <script src="http://dilbert.com/assets/application.js"></script>   -->
+<!-- TODO TEMP!!!! -->
+<script src="http://dilbert.com/assets/application-1a5fd9060e6e930f5b17e6592d3cf705.js"></script>
+
+
+<!-- ********** ADVERTISING ********** -->
+
+<!--     Begin Google Ads 1    -->
+<script async="async" src="https://www.googletagservices.com/tag/js/gpt.js"></script>
+<script>
+  var googletag = googletag || {};
+  googletag.cmd = googletag.cmd || [];
+</script>
+<!--    End Google Ads 1    -->
+
+<!-- Begin Amazon 1 -->
+<script type='text/javascript'>
+  !function(a9,a,p,s,t,A,g){if(a[a9])return;function q(c,r){a[a9]._Q.push([c,r])}a[a9]={init:function(){q("i",arguments)},fetchBids:function()
+  {q("f",arguments)},setDisplayBids:function(){},_Q:[]};A=p.createElement(s);A.async=!0;A.src=t;g=p.getElementsByTagName(s)[0];g.parentNode.insertBefore( A,g)}("apstag",window,document,"script","//c.amazon-adsystem.com/aax2/apstag.js");
+
+  // initialize apstag and have apstag set bids on the googletag slots when they are returned to the page
+  apstag.init({
+      pubID: '3170',
+      adServer: 'googletag'
+  });
+</script>
+<!-- End Amazon 1 -->
+
+
+
+
+<script type='text/javascript'>
+  var browserWidth = $(window).width();
+  var browserHeight = $(window).height();
+
+  var adSlotPath = '/19196947/dilbert.com/blog/scottadams';
+
+  /* ************************** */
+   /*          Ad Config         */
+   /* ************************** */
+   var adSlotConfig = {};
+   adSlotConfig['leaderboard'] = {
+       name: 'leaderboard',
+       targeting: {'pos': 'top'},
+       breakpoints: [
+           {
+               minWidth: 970,
+               minHeight: 850,
+               sizes: [[970, 250], [970, 90], [728, 90]]
+           },
+           {
+               minWidth: 970,
+               minHeight: 0,
+               sizes: [[970, 90], [728, 90]]
+           },
+           {
+               minWidth: 728,
+               minHeight: 0,
+               sizes: [[728, 90], [320, 50]]
+           },
+           {
+               minWidth: 0,
+               minHeight: 0,
+               sizes: [[320, 50]]
+           }
+       ]
+   };
+
+   adSlotConfig['rectangle_left'] = {
+       name: 'rectangle_left',
+       targeting: {'pos': 'left'},
+       breakpoints: [
+           {
+               minWidth: 0,
+               minHeight: 0,
+               sizes: [[300, 250]]
+           }
+       ]
+   };
+
+   adSlotConfig['rectangle_right'] = {
+       name: 'rectangle_right',
+       targeting: {'pos': 'right'},
+       breakpoints: [
+           {
+               minWidth: 1400,
+               minHeight: 0,
+               sizes: [[300, 250]]
+           },
+           {
+               minWidth: 0,
+               minHeight: 0,
+               sizes: [[]]
+           }
+       ]
+   };
+
+   adSlotConfig['rectangle_post'] = {
+       name: 'rectangle_post',
+       targeting: {'pos': 'post'},
+       breakpoints: [
+           {
+               minWidth: 0,
+               minHeight: 0,
+               sizes: [[300, 250]]
+           }
+       ]
+   };
+
+
+   adSlotConfig['tower'] = {
+       name: 'tower',
+       targeting: {'pos': 'anchor'},
+       breakpoints: [
+           {
+               minWidth: 550,
+               minHeight: 0,
+               sizes: [[160, 600], [300, 600]]
+           },
+           {
+               minWidth: 0,
+               minHeight: 0,
+               sizes: [[]]
+           }
+       ]
+   };
+
+
+
+   /* ********************************** */
+   /*      Helper Functions for Ads      */
+   /* ********************************** */
+
+   var findBreakpoint = function(breakpointsArray) {
+       var maxBpt, curBpt;
+       for (var i = 0; i < breakpointsArray.length; i++) {
+           curBpt = breakpointsArray[i];
+           if (browserWidth >= curBpt.minWidth && browserHeight >= curBpt.minHeight){
+               if(!maxBpt || (curBpt.minWidth >= maxBpt.minWidth && curBpt.minHeight >= maxBpt.minHeight)){
+                   maxBpt = curBpt;
+               }
+           }
+       }
+       return maxBpt
+   };
+
+   function findAds(selector) {
+        var ads = $(selector);
+
+        // Filter out any ads that are hidden
+        var visibleAds = ads.filter(":visible");
+
+        return visibleAds;
+    }
+
+    function defineAds(adDivs) {
+        var slots = [];
+        var i, slotType, slot;
+        for (i = 0; i < adDivs.length; i++) {
+            // ID given to ad slot, usually ad type + index
+            slotName = adDivs[i].id;
+
+            // Slot type, stored in data-ad-type
+            slotType = $(adDivs[i]).data('ad-type');
+
+            // Define slot
+            slot = googletag.defineSlot(adSlotPath, adSlotConfig[slotType].breakpoint.sizes, slotName).addService(googletag.pubads());
+
+            // Set slot level targeting
+            for (key in adSlotConfig[slotType].targeting) {
+                slot.setTargeting(key, adSlotConfig[slotType].targeting[key]);
+            }
+
+            slots.push(slot);
+
+        }
+        return slots;
+    }
+
+    function displayAds(adDivs) {
+        var adDivsLength = adDivs.length;
+        var slotName;
+
+        if(adDivsLength == 0) {
+            googletag.display();
+        } else {
+            for (var i = adDivsLength-1; i>=0; i--) {
+                slotName = adDivs[i].id;
+                googletag.display(slotName);
+            }
+        }
+
+    }
+
+    function amzn_buildSlotsArray (slots) {
+        var slotsArray = [];
+        var i, slot, slotType;
+        for(i = 0; i < slots.length; i++){
+            slot = slots[i];
+            slotType = $(slot).data('ad-type');
+            slotsArray.push({
+                slotID: slot.id,
+                sizes: adSlotConfig[slotType].breakpoint.sizes
+            });
+        }
+        return slotsArray;
+
+    }
+
+    // Set all breakpoints
+    adSlotConfig['leaderboard'].breakpoint = findBreakpoint(adSlotConfig['leaderboard'].breakpoints);
+    adSlotConfig['rectangle_left'].breakpoint = findBreakpoint(adSlotConfig['rectangle_left'].breakpoints);
+    adSlotConfig['rectangle_right'].breakpoint = findBreakpoint(adSlotConfig['rectangle_right'].breakpoints);
+    adSlotConfig['rectangle_post'].breakpoint = findBreakpoint(adSlotConfig['rectangle_post'].breakpoints);
+    adSlotConfig['tower'].breakpoint = findBreakpoint(adSlotConfig['tower'].breakpoints);
+
+
+    /* *************************** */
+    /*      Initial Page Load      */
+    /* *************************** */
+    googletag.cmd.push(function() {
+       $(document).ready(function(){
+
+           var curAds = findAds('.js-ad');
+           var curSlots = defineAds(curAds);
+
+           // Fetch Amazon bids for slots on page
+           apstag.fetchBids(
+               {
+                   slots: amzn_buildSlotsArray(curAds),
+                   timeout: 1000
+               },
+               function(bids) {
+                   googletag.cmd.push(function(){
+                       // Set Amazon bid key-values pairs
+                       try {
+                           apstag.setDisplayBids();
+                       } catch(e) {
+                           //do nothing
+                       }
+
+                       // Enable services on googletag
+                       googletag.enableServices();
+
+                       // Display ads
+                       displayAds(curAds);
+                   });
+               }
+           );
+       });
+   });
+
+</script>
+
+<!--[if lt IE 9]>
+<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+<!-- Begin Quantcast -->
+<script type="text/javascript">
+    var _qevents = _qevents || [];
+
+    (function() {
+        var elem = document.createElement('script');
+        elem.src = (document.location.protocol == "https:" ? "https://secure" : "http://edge") + ".quantserve.com/quant.js";
+        elem.async = true;
+        elem.type = "text/javascript";
+        var scpt = document.getElementsByTagName('script')[0];
+        scpt.parentNode.insertBefore(elem, scpt);
+    })();
+
+    _qevents.push({
+        qacct:"p-5bhew76JBcfq6"
+    });
+</script>
+
+<noscript>
+  <div style="display:none;">
+    <img src="//pixel.quantserve.com/pixel/p-5bhew76JBcfq6.gif" border="0" height="1" width="1" alt="Quantcast"/>
+  </div>
+</noscript>
+<!-- End Quantcast -->
+
+
+<!-- Cookie Consent -->
+<script type="text/javascript">
+    //Set markup and styling here
+    window.cookieconsent_options = {
+          learnMore: 'More info',
+          link: 'http://dilbert.com/privacy',
+          //If you wish to use your own CSS instead, specify the URL of your CSS file. e.g. styles/my_custom_theme.css.
+          //This can be a relative or absolute URL.
+          //To stop Cookie Consent from loading CSS at all, specify false
+          //IE8 Styles need to be duplicated in app specific css overrides /assets/stylesheets/ie/ie8.css
+          theme: false,
+          markup: [
+              '<div>',
+              '<style type="text/css">.cc_banner-wrapper {height: 70px; } .cc_container {z-index:9001; position:fixed; width:100%; left:0; top:0; right:0; overflow:hidden; background-color:#666; } .cookie-choices-info {margin:0; padding:0; text-align:center; color:#fff; line-height:140%; padding:15px 0; font-family:roboto,Arial } .cookie-choices-info .cookie-choices-text {display:inline-block; vertical-align:middle; font-size:16px; margin:10px; color:#fefefe; max-width:800px; text-align:center } .cookie-choices-info .cookie-choices-buttons {display:inline-block; vertical-align:middle; white-space:nowrap; margin:10px } .cookie-choices-info .cookie-choices-button:hover {color:#fff; background-color:#000 } .cookie-choices-info .cookie-choices-button {background:#444; font-weight:700; text-transform:UPPERCASE; white-space:nowrap; color:#eee; margin-left:8px; padding:10px; border-radius:3px; text-decoration:none } @media screen and (max-width: 851px) {.cc_banner-wrapper {height:110px } } @media screen and (max-width: 588px) {.cc_banner-wrapper {height:140px } } @media screen and (max-width: 327px) {.cc_banner-wrapper {height:160px } } @media print {.cc_banner-wrapper,.cc_container {display:none } }</style>',
+              '<div class="cc_banner-wrapper {{containerClasses}}">',
+              '<div class="cc_banner cc_container cc_container--open">',
+              '<div class="cookie-choices-info"><div class="cookie-choices-inner"><span class="cookie-choices-text">{{options.message}}</span><span class="cookie-choices-buttons"> <a data-cc-if="options.link" class="cookie-choices-button" target="_blank" href="{{options.link || "#null"}}">{{options.learnMore}}</a> <a id="cookieChoiceDismiss" href="#null" data-cc-event="click:dismiss"  class="cookie-choices-button">{{options.dismiss}}</a></span></div></div>',
+              '</div>',
+              '</div>',
+              '</div>'
+          ],
+          cookieName: 'dilbert_cookieconsent_dismissed',
+          readystate: 'interactive'
+    };
+</script>
+<script type="text/javascript" src="http://dilbert.com/assets/uu-cookieconsent-b04785b10c3032c2a95b32e44177175c.js"></script>
+<!-- End Cookie Consent -->
+
+
+  <!-- wp-head -->
+  <title>Dilbert Blog - Dilbert Blog</title>
+
+<!-- This site is optimized with the Yoast SEO plugin v7.2 - https://yoast.com/wordpress/plugins/seo/ -->
+<meta name="description" content="Dilbert Blog"/>
+<link rel="canonical" href="http://blog.dilbert.com/" />
+<link rel="next" href="http://blog.dilbert.com/page/2/" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Dilbert Blog - Dilbert Blog" />
+<meta property="og:description" content="Dilbert Blog" />
+<meta property="og:url" content="http://blog.dilbert.com/" />
+<meta property="og:site_name" content="Dilbert Blog" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:description" content="Dilbert Blog" />
+<meta name="twitter:title" content="Dilbert Blog - Dilbert Blog" />
+<script type='application/ld+json'>{"@context":"https:\/\/schema.org","@type":"WebSite","@id":"#website","url":"http:\/\/blog.dilbert.com\/","name":"Dilbert Blog","potentialAction":{"@type":"SearchAction","target":"http:\/\/blog.dilbert.com\/?s={search_term_string}","query-input":"required name=search_term_string"}}</script>
+<!-- / Yoast SEO plugin. -->
+
+<link rel='dns-prefetch' href='//s.w.org' />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.4\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.4\/svg\/","svgExt":".svg","source":{"concatemoji":"http:\/\/blog.dilbert.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.9.5"}};
+			!function(a,b,c){function d(a,b){var c=String.fromCharCode;l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,a),0,0);var d=k.toDataURL();l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,b),0,0);var e=k.toDataURL();return d===e}function e(a){var b;if(!l||!l.fillText)return!1;switch(l.textBaseline="top",l.font="600 32px Arial",a){case"flag":return!(b=d([55356,56826,55356,56819],[55356,56826,8203,55356,56819]))&&(b=d([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]),!b);case"emoji":return b=d([55357,56692,8205,9792,65039],[55357,56692,8203,9792,65039]),!b}return!1}function f(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var g,h,i,j,k=b.createElement("canvas"),l=k.getContext&&k.getContext("2d");for(j=Array("flag","emoji"),c.supports={everything:!0,everythingExceptFlag:!0},i=0;i<j.length;i++)c.supports[j[i]]=e(j[i]),c.supports.everything=c.supports.everything&&c.supports[j[i]],"flag"!==j[i]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[j[i]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(h=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",h,!1),a.addEventListener("load",h,!1)):(a.attachEvent("onload",h),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),g=c.source||{},g.concatemoji?f(g.concatemoji):g.wpemoji&&g.twemoji&&(f(g.twemoji),f(g.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel='stylesheet' id='wp-custom-login-error-message-css'  href='http://blog.dilbert.com/wp-content/plugins/wp-custom-login-error-message/public/css/wp-custom-login-error-message-public.css?ver=1.0.0' type='text/css' media='all' />
+<script type='text/javascript' src='http://blog.dilbert.com/wp-includes/js/jquery/jquery.js?ver=1.12.4'></script>
+<script type='text/javascript' src='http://blog.dilbert.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
+<script type='text/javascript' src='http://blog.dilbert.com/wp-content/plugins/wp-custom-login-error-message/public/js/wp-custom-login-error-message-public.js?ver=1.0.0'></script>
+<link rel='https://api.w.org/' href='http://blog.dilbert.com/wp-json/' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://blog.dilbert.com/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://blog.dilbert.com/wp-includes/wlwmanifest.xml" /> 
+<script type="text/javascript"><!--
+function powerpress_pinw(pinw_url){window.open(pinw_url, 'PowerPressPlayer','toolbar=0,status=0,resizable=1,width=460,height=320');	return false;}
+//-->
+</script>
+  <!-- wp-head -->
+
+
+</head>
+<body class="home blog">
+<!-- Google Universal Analytics Start -->
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    // UU Tracking Object
+    ga('create', "UA-273330-47", 'auto', {'name': 'trackerUU47', 'cookieDomain': 'blog.dilbert.com'});
+    ga('trackerUU47.require', 'displayfeatures');
+    ga('trackerUU47.require', 'linkid');
+    ga('trackerUU47.set', 'dimension1', "Dilbert Blog");
+    ga('trackerUU47.set', 'dimension2', "Dilbert");
+    ga('trackerUU47.send', 'pageview');
+
+    // Analytics Time Tracking
+    var trackTimeSpent = function(time) {
+        ga('trackerUU47.send', 'event', "Comics", "Dilbert", "");
+        //completionTime);
+    };
+        // Analytics Virtual Pageview Hit - Asynchronous View Change
+    var trackItemsLoad = function(items) {
+        ga('trackerUU47.send', 'pageview', { "location": "http://blog.dilbert.com", "page": "http://blog.dilbert.com", "title": "Dilbert Blog - http://blog.dilbert.com"});
+    };
+
+    //Analytics Event Tracking - Sharing
+    var trackSharingToggle = function() {
+        ga('trackerUU47.send', 'event', 'social', 'Share - Activated Toggle');
+    };
+
+    // no longer used
+    var trackSharingCopiedLink = function() {
+        ga('trackerUU47.send', 'event', 'social', 'Share - Shared via Copied Link');
+    };
+
+    var trackSharingNetwork = function(network) {
+        ga('trackerUU47.send', 'event', 'social', 'Share - Shared via ' + network);
+    };
+
+    var trackUXGeneric = function(trackingLabel) {
+      ga('trackerUU47.send', 'event', 'social', 'UX - ' + trackingLabel);
+    };
+
+    var trackFollow = function(trackingLabel) {
+      ga('trackerUU47.send', 'event', 'social', 'Follow - ' + trackingLabel);
+    };
+</script>
+<!-- Google Universal Analytics End -->
+<div class="container-fluid">
+
+  <!-- HEADER START HEADER START HEADER START HEADER START HEADER START HEADER START HEADER START HEADER START HEADER START HEADER START HEADER START HEADER START HEADER START HEADER START HEADER START HEADER START HEADER START HEADER START HEADER START HEADER START HEADER START HEADER START HEADER START HEADER START HEADER START HEADER START HEADER START HEADER START HEADER START HEADER START HEADER START HEADER START HEADER START HEADER START HEADER START HEADER START HEADER START HEADER START HEADER START HEADER START HEADER START HEADER START HEADER START HEADER START HEADER START HEADER START HEADER START HEADER START HEADER START HEADER START -->
+
+    <div class="site-bg-bar"></div>
+    <div class="container-header">
+      <header class="site-header">
+        <div class="visible-xs-block site-mobile-header">
+          <a class="btn btn-link site-header-mobile-link pull-left js-toggle-link" href="" data-target=".site-header-nav"><i class="fa fa-bars fa-lg" aria-hidden="true"></i><i class="fa fa-times fa-lg" aria-hidden="true"></i> <span class="sr-only">Menu</span></a>
+          <a href="http://dilbert.com/search" class="btn btn-link pull-right site-header-mobile-link js-toggle-link" data-target=".site-header-mobile-search"><i class="fa fa-search fa-lg" aria-hidden="true"></i><i class="fa fa-times fa-lg" aria-hidden="true"></i> <span class="sr-only">Search</span></a>
+        </div>
+        <div class="site-header-branding">
+          <span class="logo-container"><a class="logo" href="http://dilbert.com/"><img src="http://ext.branch.dilbert.com/assets/dilbert-logo-cc554dae2d6fe1d0e5f0cf89c8dd5fa1.png" alt="Dilbert logo" width="144" height="127" /></a></span>
+          <span class="hidden-xs"><img class="characters-top" src="http://ext.branch.dilbert.com/assets/dilbert_character_top-89a98cb02f28bb33abaea4fd2068728c.png" alt="Dilbert character top" width="169" height="107" /></span>
+        </div><!-- /.site-header-branding -->
+        <div class="site-header-nav hidden-xs">
+          <nav>
+            <ul class="nav-main">
+              <li class="nav-main-item "><a class="nav-main-link" href="http://dilbert.com/">Comics</a></li>
+              <li class="nav-main-item active"><a class="nav-main-link" href="http://blog.dilbert.com?utm_source=&amp;utm_medium=site&amp;utm_campaign=brand-engagement&amp;utm_content=navigation">Blog</a></li>
+              <li class="nav-main-item"><a class="nav-main-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">Follow</a>
+                <ul class="dropdown-menu nav-main-dropdown">
+                  <li class="nav-sub-item"><a href="https://www.facebook.com/dilbert?utm_source=&amp;utm_medium=site&amp;utm_campaign=brand-social&amp;utm_content=navigation" target="_blank"><i class="fa fa-fw fa-facebook"></i> Facebook</a></li>
+                  <li class="nav-sub-item"><a href="https://twitter.com/Dilbert_Daily?utm_source=&amp;utm_medium=site&amp;utm_campaign=brand-social&amp;utm_content=navigation" target="_blank"><i class="fa fa-fw fa-twitter"></i> Twitter</a></li>
+                  <li class="nav-sub-item"><a class="link-blended" href="http://feed.dilbert.com/dilbert/daily_strip"><i class='fa fa-fw fa-rss'></i> Comics</a></li>
+                  <li class="nav-sub-item"><a class="link-blended" href="http://feed.dilbert.com/dilbert/blog"><i class='fa fa-fw fa-rss'></i> Blog</a></li>
+                </ul>
+              </li>
+              <li class="nav-main-item "><a class="nav-main-link" href="http://dilbert.com/search"><i class='fa fa-search'></i> <span class='sr-only'>Search</span></a></li>
+            </ul>
+            <ul class="nav-secondary">
+              <li class="nav-secondary-item"><a class="nav-secondary-link" href="http://blog.dilbert.com/about">About Dilbert</a></li>
+              <li class="nav-secondary-item"><a class="nav-secondary-link" href="http://dilbert.com/privacy">Privacy</a></li>
+              <li class="nav-secondary-item"><a class="nav-secondary-link" href="http://dilbert.com/privacy">Cookies</a></li>
+              <li class="nav-secondary-item"><a class="nav-secondary-link" href="http://blog.dilbert.com/advertising">Advertising</a></li>
+              <li class="nav-secondary-item"><a class="nav-secondary-link" href="http://blog.dilbert.com/contact">Contact</a></li>
+            </ul>
+          </nav>
+        </div><!-- /.site-header-nav -->
+        <div class="site-header-mobile-search">
+          <form action="http://dilbert.com/search_results" method="get">
+            <div class="form-group">
+                <input type="text" name="terms" id="terms" class="form-control input-lg" placeholder="Search by Keyword or Date" />
+            </div>
+            <div class="form-group">
+              <button name="" type="sumbit" class="btn btn-block btn-primary btn-lg">
+                <i class='fa fa-search'></i> Search
+              </button>
+            </div>
+          </form>
+        </div>
+      </header><!-- /.site-header -->
+    </div><!-- /.container-header -->
+
+
+<!-- HEADER END HEADER END HEADER END HEADER END HEADER END HEADER END HEADER END HEADER END HEADER END HEADER END HEADER END HEADER END HEADER END HEADER END HEADER END HEADER END HEADER END HEADER END HEADER END HEADER END HEADER END HEADER END HEADER END HEADER END HEADER END HEADER END HEADER END HEADER END HEADER END HEADER END HEADER END HEADER END HEADER END HEADER END HEADER END HEADER END HEADER END HEADER END HEADER END HEADER END HEADER END HEADER END HEADER END HEADER END HEADER END HEADER END HEADER END HEADER END HEADER END HEADER END -->
+
+
+<!-- Create div with id that matches the id in the initial declared ad slot -->
+<div id='leaderboard' class='ad ad-leaderboard js-ad' data-ad-type="leaderboard"></div>
+
+<div class="container container-blog blog-index">
+  <div class="row">
+    <div class="col-sm-12">
+      <ul class="blog-nav">
+        <li class="blog-nav-item blog-nav-featured blog-nav-item-primary">
+          <a class="blog-nav-link" href="/"><h1><img class="" src="http://static.tumblr.com/oqfkeha/1DWnk09vk/avatar_scottadams_128.png" width="100" alt=""> Scott Adams' Blog</h1></a>
+        </li>
+        <li class="blog-nav-item">
+          <a class="blog-nav-link" href="/coffee-with-scott-adams-podcast">Podcast</a>
+        </li>
+<!--         <li class="blog-nav-item">
+          <a class="blog-nav-link" href="/books">Books</a>
+        </li> -->
+      </ul>
+    </div>
+  </div><!-- /.row -->
+
+
+<div class="amu-main-container">
+  <div class="amu-content-w-ad-sidebar">
+    <section class="col-sm-12">
+
+<div class="blog-posts">
+
+  
+  <article class="blog-item post js-blog-post-container-16849" data-id="16849" data-url="http://blog.dilbert.com/2018/04/10/episode-22-trumps-personal-attorneys-office-raided-by-fbi/" data-image="{text:ShareImage}" data-date="2018-April-10" data-creator="Scott Adams" data-title="Episode 22: Trump&#8217;s personal attorney&#8217;s office raided by FBI" data-tags="" data-description="{PostSummary}">
+	
+      <div class="blog-posts-social-nav hidden-xs" style="">
+        <ul class="amu-section-social amu-section-social-responsive">
+          <li class="amu-social-item"><a class="social-btn social-btn-link btn-primary" href="http://feed.dilbert.com/dilbert/blog"><i class="fa fa-rss fa-fw fa-lg"></i><span class="sr-only"> RSS Feed</span></a></li>
+        </ul>
+      </div><!-- /.blog-posts-social-nav -->
+    
+  <article id="post-16849" class="post-16849 post type-post status-publish format-standard hentry category-podcast">
+  <header>
+    <h1 class="blog-post-title">
+      <a class="post-title" href="http://blog.dilbert.com/2018/04/10/episode-22-trumps-personal-attorneys-office-raided-by-fbi/" title="Episode 22: Trump&#8217;s personal attorney&#8217;s office raided by FBI" rel="bookmark">Episode 22: Trump&#8217;s personal attorney&#8217;s office raided by FBI</a>
+    </h1>
+    <p class="blog-post-meta">
+	<span class="entry-date">Posted April 10, 2018</span>
+	<span class="tag-links"></span>
+	</p>  </header>
+  <section class="entry-content content-section">
+		<p>Topic:</p>
+<p>The FBI raided the office of Trump&#8217;s personal attorney and gives Trump a free pass to fire anyone associated with that decision.</p>
+<div class="powerpress_player" id="powerpress_player_3878"><!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+<audio class="wp-audio-shortcode" id="audio-16849-1" preload="none" style="width: 100%;" controls="controls"><source type="audio/mpeg" src="http://blog.dilbert.com/wp-content/uploads/2018/04/Episode-22-Trump-personal-attorney-office-raided-Now-Trump-can-do-some-firing.mp3?_=1" /><a href="http://blog.dilbert.com/wp-content/uploads/2018/04/Episode-22-Trump-personal-attorney-office-raided-Now-Trump-can-do-some-firing.mp3">http://blog.dilbert.com/wp-content/uploads/2018/04/Episode-22-Trump-personal-attorney-office-raided-Now-Trump-can-do-some-firing.mp3</a></audio></div><p class="powerpress_links powerpress_links_mp3">Podcast: <a href="http://blog.dilbert.com/wp-content/uploads/2018/04/Episode-22-Trump-personal-attorney-office-raided-Now-Trump-can-do-some-firing.mp3" class="powerpress_link_pinw" target="_blank" title="Play in new window" onclick="return powerpress_pinw('http://blog.dilbert.com/?powerpress_pinw=16849-podcast');" rel="nofollow">Play in new window</a> | <a href="http://blog.dilbert.com/wp-content/uploads/2018/04/Episode-22-Trump-personal-attorney-office-raided-Now-Trump-can-do-some-firing.mp3" class="powerpress_link_d" title="Download" rel="nofollow" download="Episode-22-Trump-personal-attorney-office-raided-Now-Trump-can-do-some-firing.mp3">Download</a></p>	<div class="entry-links"></div>
+</section></article>
+
+
+  <!-- Temporarily disabling comments per request -->
+  <a itemprop="discussionUrl" href="http://blog.dilbert.com/2018/04/10/episode-22-trumps-personal-attorneys-office-raided-by-fbi/#comments">
+    <i class="fa fa-comments"></i>
+    <span class="disqus-comment-count" data-disqus-identifier="blog-2018-4-10-16849"> 0 Comments</span>
+  </a>
+  <!-- Temporarily disabling comments per request -->
+  <script type="text/javascript">
+      var disqus_shortname = 'scottadamsblog';
+
+      (function () {
+          var s = document.createElement('script'); s.async = true;
+          s.type = 'text/javascript';
+          s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+          (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+      }());
+  </script>
+    <!-- Remove when comments are on START
+    <i class="fa fa-comments"></i>
+    <span class="disqus-comment-count">Comments temporarily disabled</span>
+    Remove when comments are on END -->
+</article> <!-- /post -->
+
+<!-- BLOG POST ADS HERE -->
+<div class="blog-item blog-item-clear content-section text-center">
+  <!-- Create new div with unique id by passing in a value for slotId -->
+  <div id='rectangle_post_1' class='ad ad-rectangle js-ad' data-ad-type="rectangle_post"></div>
+</div>
+
+
+<!-- END BLOG POST ADS -->
+
+
+  <article class="blog-item post js-blog-post-container-16848" data-id="16848" data-url="http://blog.dilbert.com/2018/04/10/episode-21-predicting-the-u-s-response-to-the-syrian-chemical-attack/" data-image="{text:ShareImage}" data-date="2018-April-10" data-creator="Scott Adams" data-title="Episode 21: Predicting the U.S. response to the Syrian chemical attack" data-tags="" data-description="{PostSummary}">
+	
+  <article id="post-16848" class="post-16848 post type-post status-publish format-standard hentry category-podcast">
+  <header>
+    <h1 class="blog-post-title">
+      <a class="post-title" href="http://blog.dilbert.com/2018/04/10/episode-21-predicting-the-u-s-response-to-the-syrian-chemical-attack/" title="Episode 21: Predicting the U.S. response to the Syrian chemical attack" rel="bookmark">Episode 21: Predicting the U.S. response to the Syrian chemical attack</a>
+    </h1>
+    <p class="blog-post-meta">
+	<span class="entry-date">Posted April 10, 2018</span>
+	<span class="tag-links"></span>
+	</p>  </header>
+  <section class="entry-content content-section">
+		<p>Topic:</p>
+<p>How will the U.S. respond to the Syrian chemical attack?</p>
+<div class="powerpress_player" id="powerpress_player_3879"><audio class="wp-audio-shortcode" id="audio-16848-2" preload="none" style="width: 100%;" controls="controls"><source type="audio/mpeg" src="http://blog.dilbert.com/wp-content/uploads/2018/04/Episode-21-Predicting-the-U.S.-response-to-Syria..mp3?_=2" /><a href="http://blog.dilbert.com/wp-content/uploads/2018/04/Episode-21-Predicting-the-U.S.-response-to-Syria..mp3">http://blog.dilbert.com/wp-content/uploads/2018/04/Episode-21-Predicting-the-U.S.-response-to-Syria..mp3</a></audio></div><p class="powerpress_links powerpress_links_mp3">Podcast: <a href="http://blog.dilbert.com/wp-content/uploads/2018/04/Episode-21-Predicting-the-U.S.-response-to-Syria..mp3" class="powerpress_link_pinw" target="_blank" title="Play in new window" onclick="return powerpress_pinw('http://blog.dilbert.com/?powerpress_pinw=16848-podcast');" rel="nofollow">Play in new window</a> | <a href="http://blog.dilbert.com/wp-content/uploads/2018/04/Episode-21-Predicting-the-U.S.-response-to-Syria..mp3" class="powerpress_link_d" title="Download" rel="nofollow" download="Episode-21-Predicting-the-U.S.-response-to-Syria..mp3">Download</a></p>	<div class="entry-links"></div>
+</section></article>
+
+
+  <!-- Temporarily disabling comments per request -->
+  <a itemprop="discussionUrl" href="http://blog.dilbert.com/2018/04/10/episode-21-predicting-the-u-s-response-to-the-syrian-chemical-attack/#comments">
+    <i class="fa fa-comments"></i>
+    <span class="disqus-comment-count" data-disqus-identifier="blog-2018-4-10-16848"> 0 Comments</span>
+  </a>
+  <!-- Temporarily disabling comments per request -->
+  <script type="text/javascript">
+      var disqus_shortname = 'scottadamsblog';
+
+      (function () {
+          var s = document.createElement('script'); s.async = true;
+          s.type = 'text/javascript';
+          s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+          (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+      }());
+  </script>
+    <!-- Remove when comments are on START
+    <i class="fa fa-comments"></i>
+    <span class="disqus-comment-count">Comments temporarily disabled</span>
+    Remove when comments are on END -->
+</article> <!-- /post -->
+
+<!-- BLOG POST ADS HERE -->
+
+
+<!-- END BLOG POST ADS -->
+
+
+  <article class="blog-item post js-blog-post-container-16843" data-id="16843" data-url="http://blog.dilbert.com/2018/04/10/episode-20-syria-chemical-attack-and-tony-robbins-apology/" data-image="{text:ShareImage}" data-date="2018-April-10" data-creator="Scott Adams" data-title="Episode 20: Syria chemical attack and Tony Robbins&#8217; apology" data-tags="" data-description="{PostSummary}">
+	
+  <article id="post-16843" class="post-16843 post type-post status-publish format-standard hentry category-podcast">
+  <header>
+    <h1 class="blog-post-title">
+      <a class="post-title" href="http://blog.dilbert.com/2018/04/10/episode-20-syria-chemical-attack-and-tony-robbins-apology/" title="Episode 20: Syria chemical attack and Tony Robbins&#8217; apology" rel="bookmark">Episode 20: Syria chemical attack and Tony Robbins&#8217; apology</a>
+    </h1>
+    <p class="blog-post-meta">
+	<span class="entry-date">Posted April 10, 2018</span>
+	<span class="tag-links"></span>
+	</p>  </header>
+  <section class="entry-content content-section">
+		<p>Topics:</p>
+<p>Syria chemical attack</p>
+<p>Tony Robbins&#8217; apology for offending the #metoo folks</p>
+<div class="powerpress_player" id="powerpress_player_3880"><audio class="wp-audio-shortcode" id="audio-16843-3" preload="none" style="width: 100%;" controls="controls"><source type="audio/mpeg" src="http://blog.dilbert.com/wp-content/uploads/2018/04/Episode-20-Syria-chemical-attack-and-Tony-Robbins-apology.mp3?_=3" /><a href="http://blog.dilbert.com/wp-content/uploads/2018/04/Episode-20-Syria-chemical-attack-and-Tony-Robbins-apology.mp3">http://blog.dilbert.com/wp-content/uploads/2018/04/Episode-20-Syria-chemical-attack-and-Tony-Robbins-apology.mp3</a></audio></div><p class="powerpress_links powerpress_links_mp3">Podcast: <a href="http://blog.dilbert.com/wp-content/uploads/2018/04/Episode-20-Syria-chemical-attack-and-Tony-Robbins-apology.mp3" class="powerpress_link_pinw" target="_blank" title="Play in new window" onclick="return powerpress_pinw('http://blog.dilbert.com/?powerpress_pinw=16843-podcast');" rel="nofollow">Play in new window</a> | <a href="http://blog.dilbert.com/wp-content/uploads/2018/04/Episode-20-Syria-chemical-attack-and-Tony-Robbins-apology.mp3" class="powerpress_link_d" title="Download" rel="nofollow" download="Episode-20-Syria-chemical-attack-and-Tony-Robbins-apology.mp3">Download</a></p>	<div class="entry-links"></div>
+</section></article>
+
+
+  <!-- Temporarily disabling comments per request -->
+  <a itemprop="discussionUrl" href="http://blog.dilbert.com/2018/04/10/episode-20-syria-chemical-attack-and-tony-robbins-apology/#comments">
+    <i class="fa fa-comments"></i>
+    <span class="disqus-comment-count" data-disqus-identifier="blog-2018-4-10-16843"> 0 Comments</span>
+  </a>
+  <!-- Temporarily disabling comments per request -->
+  <script type="text/javascript">
+      var disqus_shortname = 'scottadamsblog';
+
+      (function () {
+          var s = document.createElement('script'); s.async = true;
+          s.type = 'text/javascript';
+          s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+          (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+      }());
+  </script>
+    <!-- Remove when comments are on START
+    <i class="fa fa-comments"></i>
+    <span class="disqus-comment-count">Comments temporarily disabled</span>
+    Remove when comments are on END -->
+</article> <!-- /post -->
+
+<!-- BLOG POST ADS HERE -->
+
+
+<!-- END BLOG POST ADS -->
+
+
+  <article class="blog-item post js-blog-post-container-16839" data-id="16839" data-url="http://blog.dilbert.com/2018/04/08/episode-18-the-difference-between-the-problem-and-the-solution/" data-image="{text:ShareImage}" data-date="2018-April-08" data-creator="Scott Adams" data-title="Episode 18: The difference between the problem and the solution" data-tags="" data-description="{PostSummary}">
+	
+  <article id="post-16839" class="post-16839 post type-post status-publish format-standard hentry category-podcast">
+  <header>
+    <h1 class="blog-post-title">
+      <a class="post-title" href="http://blog.dilbert.com/2018/04/08/episode-18-the-difference-between-the-problem-and-the-solution/" title="Episode 18: The difference between the problem and the solution" rel="bookmark">Episode 18: The difference between the problem and the solution</a>
+    </h1>
+    <p class="blog-post-meta">
+	<span class="entry-date">Posted April 8, 2018</span>
+	<span class="tag-links"></span>
+	</p>  </header>
+  <section class="entry-content content-section">
+		<p>Topics:</p>
+<p>Tony Robbins&#8217; #MeT00 advice</p>
+<p>BLM</p>
+<p>How to separate the problem from the solution</p>
+<div class="powerpress_player" id="powerpress_player_3881"><audio class="wp-audio-shortcode" id="audio-16839-4" preload="none" style="width: 100%;" controls="controls"><source type="audio/mpeg" src="http://blog.dilbert.com/wp-content/uploads/2018/04/Episode-18-The-difference-between-the-problem-and-the-solution.-Bring-coffee..mp3?_=4" /><a href="http://blog.dilbert.com/wp-content/uploads/2018/04/Episode-18-The-difference-between-the-problem-and-the-solution.-Bring-coffee..mp3">http://blog.dilbert.com/wp-content/uploads/2018/04/Episode-18-The-difference-between-the-problem-and-the-solution.-Bring-coffee..mp3</a></audio></div><p class="powerpress_links powerpress_links_mp3">Podcast: <a href="http://blog.dilbert.com/wp-content/uploads/2018/04/Episode-18-The-difference-between-the-problem-and-the-solution.-Bring-coffee..mp3" class="powerpress_link_pinw" target="_blank" title="Play in new window" onclick="return powerpress_pinw('http://blog.dilbert.com/?powerpress_pinw=16839-podcast');" rel="nofollow">Play in new window</a> | <a href="http://blog.dilbert.com/wp-content/uploads/2018/04/Episode-18-The-difference-between-the-problem-and-the-solution.-Bring-coffee..mp3" class="powerpress_link_d" title="Download" rel="nofollow" download="Episode-18-The-difference-between-the-problem-and-the-solution.-Bring-coffee..mp3">Download</a></p>	<div class="entry-links"></div>
+</section></article>
+
+
+  <!-- Temporarily disabling comments per request -->
+  <a itemprop="discussionUrl" href="http://blog.dilbert.com/2018/04/08/episode-18-the-difference-between-the-problem-and-the-solution/#comments">
+    <i class="fa fa-comments"></i>
+    <span class="disqus-comment-count" data-disqus-identifier="blog-2018-4-08-16839"> 0 Comments</span>
+  </a>
+  <!-- Temporarily disabling comments per request -->
+  <script type="text/javascript">
+      var disqus_shortname = 'scottadamsblog';
+
+      (function () {
+          var s = document.createElement('script'); s.async = true;
+          s.type = 'text/javascript';
+          s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+          (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+      }());
+  </script>
+    <!-- Remove when comments are on START
+    <i class="fa fa-comments"></i>
+    <span class="disqus-comment-count">Comments temporarily disabled</span>
+    Remove when comments are on END -->
+</article> <!-- /post -->
+
+<!-- BLOG POST ADS HERE -->
+
+<div class="blog-item blog-item-clear content-section text-center">
+  <!-- Create new div with unique id by passing in a value for slotId -->
+  <div id='rectangle_post_4' class='ad ad-rectangle js-ad' data-ad-type="rectangle_post"></div>
+</div>
+
+<!-- END BLOG POST ADS -->
+
+
+  <article class="blog-item post js-blog-post-container-16838" data-id="16838" data-url="http://blog.dilbert.com/2018/04/08/episode-19-how-amazon-com-is-abusing-the-post-office-economically-speaking/" data-image="{text:ShareImage}" data-date="2018-April-08" data-creator="Scott Adams" data-title="Episode 19: how Amazon.com is abusing the Post Office (economically speaking)" data-tags="" data-description="{PostSummary}">
+	
+  <article id="post-16838" class="post-16838 post type-post status-publish format-standard hentry category-podcast">
+  <header>
+    <h1 class="blog-post-title">
+      <a class="post-title" href="http://blog.dilbert.com/2018/04/08/episode-19-how-amazon-com-is-abusing-the-post-office-economically-speaking/" title="Episode 19: how Amazon.com is abusing the Post Office (economically speaking)" rel="bookmark">Episode 19: how Amazon.com is abusing the Post Office (economically speaking)</a>
+    </h1>
+    <p class="blog-post-meta">
+	<span class="entry-date">Posted April 8, 2018</span>
+	<span class="tag-links"></span>
+	</p>  </header>
+  <section class="entry-content content-section">
+		<p>Topic:</p>
+<p>Is Amazon.com getting too good a deal from the Post Office? I tell you how economists look at the situation.</p>
+<div class="powerpress_player" id="powerpress_player_3882"><audio class="wp-audio-shortcode" id="audio-16838-5" preload="none" style="width: 100%;" controls="controls"><source type="audio/mpeg" src="http://blog.dilbert.com/wp-content/uploads/2018/04/Episode-19-How-Amazon-is-abusing-the-Post-Office-in-economic-terms.-A-quick-one.-1.mp3?_=5" /><a href="http://blog.dilbert.com/wp-content/uploads/2018/04/Episode-19-How-Amazon-is-abusing-the-Post-Office-in-economic-terms.-A-quick-one.-1.mp3">http://blog.dilbert.com/wp-content/uploads/2018/04/Episode-19-How-Amazon-is-abusing-the-Post-Office-in-economic-terms.-A-quick-one.-1.mp3</a></audio></div><p class="powerpress_links powerpress_links_mp3">Podcast: <a href="http://blog.dilbert.com/wp-content/uploads/2018/04/Episode-19-How-Amazon-is-abusing-the-Post-Office-in-economic-terms.-A-quick-one.-1.mp3" class="powerpress_link_pinw" target="_blank" title="Play in new window" onclick="return powerpress_pinw('http://blog.dilbert.com/?powerpress_pinw=16838-podcast');" rel="nofollow">Play in new window</a> | <a href="http://blog.dilbert.com/wp-content/uploads/2018/04/Episode-19-How-Amazon-is-abusing-the-Post-Office-in-economic-terms.-A-quick-one.-1.mp3" class="powerpress_link_d" title="Download" rel="nofollow" download="Episode-19-How-Amazon-is-abusing-the-Post-Office-in-economic-terms.-A-quick-one.-1.mp3">Download</a></p>	<div class="entry-links"></div>
+</section></article>
+
+
+  <!-- Temporarily disabling comments per request -->
+  <a itemprop="discussionUrl" href="http://blog.dilbert.com/2018/04/08/episode-19-how-amazon-com-is-abusing-the-post-office-economically-speaking/#comments">
+    <i class="fa fa-comments"></i>
+    <span class="disqus-comment-count" data-disqus-identifier="blog-2018-4-08-16838"> 0 Comments</span>
+  </a>
+  <!-- Temporarily disabling comments per request -->
+  <script type="text/javascript">
+      var disqus_shortname = 'scottadamsblog';
+
+      (function () {
+          var s = document.createElement('script'); s.async = true;
+          s.type = 'text/javascript';
+          s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+          (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+      }());
+  </script>
+    <!-- Remove when comments are on START
+    <i class="fa fa-comments"></i>
+    <span class="disqus-comment-count">Comments temporarily disabled</span>
+    Remove when comments are on END -->
+</article> <!-- /post -->
+
+<!-- BLOG POST ADS HERE -->
+
+
+<!-- END BLOG POST ADS -->
+
+
+  <article class="blog-item post js-blog-post-container-16837" data-id="16837" data-url="http://blog.dilbert.com/2018/04/08/episode-17-the-cnn-method-for-making-news-with-nothing-but-your-face/" data-image="{text:ShareImage}" data-date="2018-April-08" data-creator="Scott Adams" data-title="Episode 17: The CNN method for making news with nothing but your face" data-tags="" data-description="{PostSummary}">
+	
+  <article id="post-16837" class="post-16837 post type-post status-publish format-standard hentry category-podcast">
+  <header>
+    <h1 class="blog-post-title">
+      <a class="post-title" href="http://blog.dilbert.com/2018/04/08/episode-17-the-cnn-method-for-making-news-with-nothing-but-your-face/" title="Episode 17: The CNN method for making news with nothing but your face" rel="bookmark">Episode 17: The CNN method for making news with nothing but your face</a>
+    </h1>
+    <p class="blog-post-meta">
+	<span class="entry-date">Posted April 8, 2018</span>
+	<span class="tag-links"></span>
+	</p>  </header>
+  <section class="entry-content content-section">
+		<p>Topics:</p>
+<p>This audio podcast will be lacking because the main joke is visual, but you can probably follow along and get the idea from context.</p>
+<div class="powerpress_player" id="powerpress_player_3883"><audio class="wp-audio-shortcode" id="audio-16837-6" preload="none" style="width: 100%;" controls="controls"><source type="audio/mpeg" src="http://blog.dilbert.com/wp-content/uploads/2018/04/Episode-17-The-CNN-method-for-making-news-with-nothing-but-your-face.-Bring-coffee..mp3?_=6" /><a href="http://blog.dilbert.com/wp-content/uploads/2018/04/Episode-17-The-CNN-method-for-making-news-with-nothing-but-your-face.-Bring-coffee..mp3">http://blog.dilbert.com/wp-content/uploads/2018/04/Episode-17-The-CNN-method-for-making-news-with-nothing-but-your-face.-Bring-coffee..mp3</a></audio></div><p class="powerpress_links powerpress_links_mp3">Podcast: <a href="http://blog.dilbert.com/wp-content/uploads/2018/04/Episode-17-The-CNN-method-for-making-news-with-nothing-but-your-face.-Bring-coffee..mp3" class="powerpress_link_pinw" target="_blank" title="Play in new window" onclick="return powerpress_pinw('http://blog.dilbert.com/?powerpress_pinw=16837-podcast');" rel="nofollow">Play in new window</a> | <a href="http://blog.dilbert.com/wp-content/uploads/2018/04/Episode-17-The-CNN-method-for-making-news-with-nothing-but-your-face.-Bring-coffee..mp3" class="powerpress_link_d" title="Download" rel="nofollow" download="Episode-17-The-CNN-method-for-making-news-with-nothing-but-your-face.-Bring-coffee..mp3">Download</a></p>	<div class="entry-links"></div>
+</section></article>
+
+
+  <!-- Temporarily disabling comments per request -->
+  <a itemprop="discussionUrl" href="http://blog.dilbert.com/2018/04/08/episode-17-the-cnn-method-for-making-news-with-nothing-but-your-face/#comments">
+    <i class="fa fa-comments"></i>
+    <span class="disqus-comment-count" data-disqus-identifier="blog-2018-4-08-16837"> 0 Comments</span>
+  </a>
+  <!-- Temporarily disabling comments per request -->
+  <script type="text/javascript">
+      var disqus_shortname = 'scottadamsblog';
+
+      (function () {
+          var s = document.createElement('script'); s.async = true;
+          s.type = 'text/javascript';
+          s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+          (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+      }());
+  </script>
+    <!-- Remove when comments are on START
+    <i class="fa fa-comments"></i>
+    <span class="disqus-comment-count">Comments temporarily disabled</span>
+    Remove when comments are on END -->
+</article> <!-- /post -->
+
+<!-- BLOG POST ADS HERE -->
+
+
+<!-- END BLOG POST ADS -->
+
+
+  <article class="blog-item post js-blog-post-container-16836" data-id="16836" data-url="http://blog.dilbert.com/2018/04/08/california-the-shole-the-war-on-billionaires-north-korea-progress/" data-image="{text:ShareImage}" data-date="2018-April-08" data-creator="Scott Adams" data-title="Episode 16: California the S***Hole, the war on billionaires, North Korea progress" data-tags="" data-description="{PostSummary}">
+	
+  <article id="post-16836" class="post-16836 post type-post status-publish format-standard hentry category-podcast">
+  <header>
+    <h1 class="blog-post-title">
+      <a class="post-title" href="http://blog.dilbert.com/2018/04/08/california-the-shole-the-war-on-billionaires-north-korea-progress/" title="Episode 16: California the S***Hole, the war on billionaires, North Korea progress" rel="bookmark">Episode 16: California the S***Hole, the war on billionaires, North Korea progress</a>
+    </h1>
+    <p class="blog-post-meta">
+	<span class="entry-date">Posted April 8, 2018</span>
+	<span class="tag-links"></span>
+	</p>  </header>
+  <section class="entry-content content-section">
+		<p>Topics:</p>
+<p>Is California really so bad that people are leaving? If so, why are home prices still high and rising?</p>
+<p>Trump&#8217;s war on billionaires</p>
+<p>North Korea progress</p>
+<div class="powerpress_player" id="powerpress_player_3884"><audio class="wp-audio-shortcode" id="audio-16836-7" preload="none" style="width: 100%;" controls="controls"><source type="audio/mpeg" src="http://blog.dilbert.com/wp-content/uploads/2018/04/Episode-16-S__thole-California-the-war-on-billionaires-North-Korean-progress-and-AI.-With-coffee..mp3?_=7" /><a href="http://blog.dilbert.com/wp-content/uploads/2018/04/Episode-16-S__thole-California-the-war-on-billionaires-North-Korean-progress-and-AI.-With-coffee..mp3">http://blog.dilbert.com/wp-content/uploads/2018/04/Episode-16-S__thole-California-the-war-on-billionaires-North-Korean-progress-and-AI.-With-coffee..mp3</a></audio></div><p class="powerpress_links powerpress_links_mp3">Podcast: <a href="http://blog.dilbert.com/wp-content/uploads/2018/04/Episode-16-S__thole-California-the-war-on-billionaires-North-Korean-progress-and-AI.-With-coffee..mp3" class="powerpress_link_pinw" target="_blank" title="Play in new window" onclick="return powerpress_pinw('http://blog.dilbert.com/?powerpress_pinw=16836-podcast');" rel="nofollow">Play in new window</a> | <a href="http://blog.dilbert.com/wp-content/uploads/2018/04/Episode-16-S__thole-California-the-war-on-billionaires-North-Korean-progress-and-AI.-With-coffee..mp3" class="powerpress_link_d" title="Download" rel="nofollow" download="Episode-16-S__thole-California-the-war-on-billionaires-North-Korean-progress-and-AI.-With-coffee..mp3">Download</a></p>	<div class="entry-links"></div>
+</section></article>
+
+
+  <!-- Temporarily disabling comments per request -->
+  <a itemprop="discussionUrl" href="http://blog.dilbert.com/2018/04/08/california-the-shole-the-war-on-billionaires-north-korea-progress/#comments">
+    <i class="fa fa-comments"></i>
+    <span class="disqus-comment-count" data-disqus-identifier="blog-2018-4-08-16836"> 0 Comments</span>
+  </a>
+  <!-- Temporarily disabling comments per request -->
+  <script type="text/javascript">
+      var disqus_shortname = 'scottadamsblog';
+
+      (function () {
+          var s = document.createElement('script'); s.async = true;
+          s.type = 'text/javascript';
+          s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+          (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+      }());
+  </script>
+    <!-- Remove when comments are on START
+    <i class="fa fa-comments"></i>
+    <span class="disqus-comment-count">Comments temporarily disabled</span>
+    Remove when comments are on END -->
+</article> <!-- /post -->
+
+<!-- BLOG POST ADS HERE -->
+
+
+<div class="blog-item blog-item-clear content-section text-center">
+  <!-- Create new div with unique id by passing in a value for slotId -->
+  <div id='rectangle_post_7' class='ad ad-rectangle js-ad' data-ad-type="rectangle_post"></div>
+</div>
+<!-- END BLOG POST ADS -->
+
+
+  <article class="blog-item post js-blog-post-container-16835" data-id="16835" data-url="http://blog.dilbert.com/2018/04/08/updates-on-the-imaginary-news/" data-image="{text:ShareImage}" data-date="2018-April-08" data-creator="Scott Adams" data-title="Episode 15: Updates on the imaginary news" data-tags="" data-description="{PostSummary}">
+	
+  <article id="post-16835" class="post-16835 post type-post status-publish format-standard hentry category-podcast">
+  <header>
+    <h1 class="blog-post-title">
+      <a class="post-title" href="http://blog.dilbert.com/2018/04/08/updates-on-the-imaginary-news/" title="Episode 15: Updates on the imaginary news" rel="bookmark">Episode 15: Updates on the imaginary news</a>
+    </h1>
+    <p class="blog-post-meta">
+	<span class="entry-date">Posted April 8, 2018</span>
+	<span class="tag-links"></span>
+	</p>  </header>
+  <section class="entry-content content-section">
+		<p>Topics:</p>
+<p>How the news is mostly imaginary but you don&#8217;t realize it.</p>
+<div class="powerpress_player" id="powerpress_player_3885"><audio class="wp-audio-shortcode" id="audio-16835-8" preload="none" style="width: 100%;" controls="controls"><source type="audio/mpeg" src="http://blog.dilbert.com/wp-content/uploads/2018/04/Episode-15-Updates-on-the-imaginary-news.-Bring-a-beverage..mp3?_=8" /><a href="http://blog.dilbert.com/wp-content/uploads/2018/04/Episode-15-Updates-on-the-imaginary-news.-Bring-a-beverage..mp3">http://blog.dilbert.com/wp-content/uploads/2018/04/Episode-15-Updates-on-the-imaginary-news.-Bring-a-beverage..mp3</a></audio></div><p class="powerpress_links powerpress_links_mp3">Podcast: <a href="http://blog.dilbert.com/wp-content/uploads/2018/04/Episode-15-Updates-on-the-imaginary-news.-Bring-a-beverage..mp3" class="powerpress_link_pinw" target="_blank" title="Play in new window" onclick="return powerpress_pinw('http://blog.dilbert.com/?powerpress_pinw=16835-podcast');" rel="nofollow">Play in new window</a> | <a href="http://blog.dilbert.com/wp-content/uploads/2018/04/Episode-15-Updates-on-the-imaginary-news.-Bring-a-beverage..mp3" class="powerpress_link_d" title="Download" rel="nofollow" download="Episode-15-Updates-on-the-imaginary-news.-Bring-a-beverage..mp3">Download</a></p>	<div class="entry-links"></div>
+</section></article>
+
+
+  <!-- Temporarily disabling comments per request -->
+  <a itemprop="discussionUrl" href="http://blog.dilbert.com/2018/04/08/updates-on-the-imaginary-news/#comments">
+    <i class="fa fa-comments"></i>
+    <span class="disqus-comment-count" data-disqus-identifier="blog-2018-4-08-16835"> 0 Comments</span>
+  </a>
+  <!-- Temporarily disabling comments per request -->
+  <script type="text/javascript">
+      var disqus_shortname = 'scottadamsblog';
+
+      (function () {
+          var s = document.createElement('script'); s.async = true;
+          s.type = 'text/javascript';
+          s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+          (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+      }());
+  </script>
+    <!-- Remove when comments are on START
+    <i class="fa fa-comments"></i>
+    <span class="disqus-comment-count">Comments temporarily disabled</span>
+    Remove when comments are on END -->
+</article> <!-- /post -->
+
+<!-- BLOG POST ADS HERE -->
+
+
+<!-- END BLOG POST ADS -->
+
+
+  <article class="blog-item post js-blog-post-container-16817" data-id="16817" data-url="http://blog.dilbert.com/2018/04/08/how-trump-derangement-syndrome-turns-small-stories-into-big-ones/" data-image="{text:ShareImage}" data-date="2018-April-08" data-creator="Scott Adams" data-title="Episode 14: How Trump Derangement Syndrome turns small stories into big ones" data-tags="" data-description="{PostSummary}">
+	
+  <article id="post-16817" class="post-16817 post type-post status-publish format-standard hentry category-podcast category-uncategorized">
+  <header>
+    <h1 class="blog-post-title">
+      <a class="post-title" href="http://blog.dilbert.com/2018/04/08/how-trump-derangement-syndrome-turns-small-stories-into-big-ones/" title="Episode 14: How Trump Derangement Syndrome turns small stories into big ones" rel="bookmark">Episode 14: How Trump Derangement Syndrome turns small stories into big ones</a>
+    </h1>
+    <p class="blog-post-meta">
+	<span class="entry-date">Posted April 8, 2018</span>
+	<span class="tag-links"></span>
+	</p>  </header>
+  <section class="entry-content content-section">
+		<p>Topics:</p>
+<p>How the mass hysteria around President Trump makes the small stories seem like big ones.</p>
+<div class="powerpress_player" id="powerpress_player_3886"><audio class="wp-audio-shortcode" id="audio-16817-9" preload="none" style="width: 100%;" controls="controls"><source type="audio/mpeg" src="http://blog.dilbert.com/wp-content/uploads/2018/04/Episode-14-How-DTS-turns-low-priorities-into-big-ones.mp3?_=9" /><a href="http://blog.dilbert.com/wp-content/uploads/2018/04/Episode-14-How-DTS-turns-low-priorities-into-big-ones.mp3">http://blog.dilbert.com/wp-content/uploads/2018/04/Episode-14-How-DTS-turns-low-priorities-into-big-ones.mp3</a></audio></div><p class="powerpress_links powerpress_links_mp3">Podcast: <a href="http://blog.dilbert.com/wp-content/uploads/2018/04/Episode-14-How-DTS-turns-low-priorities-into-big-ones.mp3" class="powerpress_link_pinw" target="_blank" title="Play in new window" onclick="return powerpress_pinw('http://blog.dilbert.com/?powerpress_pinw=16817-podcast');" rel="nofollow">Play in new window</a> | <a href="http://blog.dilbert.com/wp-content/uploads/2018/04/Episode-14-How-DTS-turns-low-priorities-into-big-ones.mp3" class="powerpress_link_d" title="Download" rel="nofollow" download="Episode-14-How-DTS-turns-low-priorities-into-big-ones.mp3">Download</a></p>	<div class="entry-links"></div>
+</section></article>
+
+
+  <!-- Temporarily disabling comments per request -->
+  <a itemprop="discussionUrl" href="http://blog.dilbert.com/2018/04/08/how-trump-derangement-syndrome-turns-small-stories-into-big-ones/#comments">
+    <i class="fa fa-comments"></i>
+    <span class="disqus-comment-count" data-disqus-identifier="blog-2018-4-08-16817"> 0 Comments</span>
+  </a>
+  <!-- Temporarily disabling comments per request -->
+  <script type="text/javascript">
+      var disqus_shortname = 'scottadamsblog';
+
+      (function () {
+          var s = document.createElement('script'); s.async = true;
+          s.type = 'text/javascript';
+          s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+          (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+      }());
+  </script>
+    <!-- Remove when comments are on START
+    <i class="fa fa-comments"></i>
+    <span class="disqus-comment-count">Comments temporarily disabled</span>
+    Remove when comments are on END -->
+</article> <!-- /post -->
+
+<!-- BLOG POST ADS HERE -->
+
+
+<!-- END BLOG POST ADS -->
+
+
+  <article class="blog-item post js-blog-post-container-16824" data-id="16824" data-url="http://blog.dilbert.com/2018/04/04/episode-12-youtube-shooter-amazon-com-trade-war-and-overcoming-social-anxiety/" data-image="{text:ShareImage}" data-date="2018-April-04" data-creator="Scott Adams" data-title="Episode 13: YouTube shooter, Amazon.com, trade war, and overcoming social anxiety" data-tags="" data-description="{PostSummary}">
+	
+  <article id="post-16824" class="post-16824 post type-post status-publish format-standard hentry category-podcast">
+  <header>
+    <h1 class="blog-post-title">
+      <a class="post-title" href="http://blog.dilbert.com/2018/04/04/episode-12-youtube-shooter-amazon-com-trade-war-and-overcoming-social-anxiety/" title="Episode 13: YouTube shooter, Amazon.com, trade war, and overcoming social anxiety" rel="bookmark">Episode 13: YouTube shooter, Amazon.com, trade war, and overcoming social anxiety</a>
+    </h1>
+    <p class="blog-post-meta">
+	<span class="entry-date">Posted April 4, 2018</span>
+	<span class="tag-links"></span>
+	</p>  </header>
+  <section class="entry-content content-section">
+		<p>Topics:</p>
+<p>YouTube shooter</p>
+<p>Trade war update</p>
+<p>How the Post Office makes money and covers their losses without taxpayer funding</p>
+<p>Lesson on overcoming social anxiety (this is the best part and comes in the final third of the podcast)</p>
+<div class="powerpress_player" id="powerpress_player_3887"><audio class="wp-audio-shortcode" id="audio-16824-10" preload="none" style="width: 100%;" controls="controls"><source type="audio/mpeg" src="http://blog.dilbert.com/wp-content/uploads/2018/04/Episode-12-YouTube-shooter-Amazon.com-and-trade-war-and-overcoming-social-anxiety.mp3?_=10" /><a href="http://blog.dilbert.com/wp-content/uploads/2018/04/Episode-12-YouTube-shooter-Amazon.com-and-trade-war-and-overcoming-social-anxiety.mp3">http://blog.dilbert.com/wp-content/uploads/2018/04/Episode-12-YouTube-shooter-Amazon.com-and-trade-war-and-overcoming-social-anxiety.mp3</a></audio></div><p class="powerpress_links powerpress_links_mp3">Podcast: <a href="http://blog.dilbert.com/wp-content/uploads/2018/04/Episode-12-YouTube-shooter-Amazon.com-and-trade-war-and-overcoming-social-anxiety.mp3" class="powerpress_link_pinw" target="_blank" title="Play in new window" onclick="return powerpress_pinw('http://blog.dilbert.com/?powerpress_pinw=16824-podcast');" rel="nofollow">Play in new window</a> | <a href="http://blog.dilbert.com/wp-content/uploads/2018/04/Episode-12-YouTube-shooter-Amazon.com-and-trade-war-and-overcoming-social-anxiety.mp3" class="powerpress_link_d" title="Download" rel="nofollow" download="Episode-12-YouTube-shooter-Amazon.com-and-trade-war-and-overcoming-social-anxiety.mp3">Download</a></p>	<div class="entry-links"></div>
+</section></article>
+
+
+  <!-- Temporarily disabling comments per request -->
+  <a itemprop="discussionUrl" href="http://blog.dilbert.com/2018/04/04/episode-12-youtube-shooter-amazon-com-trade-war-and-overcoming-social-anxiety/#comments">
+    <i class="fa fa-comments"></i>
+    <span class="disqus-comment-count" data-disqus-identifier="blog-2018-4-04-16824"> 0 Comments</span>
+  </a>
+  <!-- Temporarily disabling comments per request -->
+  <script type="text/javascript">
+      var disqus_shortname = 'scottadamsblog';
+
+      (function () {
+          var s = document.createElement('script'); s.async = true;
+          s.type = 'text/javascript';
+          s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+          (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+      }());
+  </script>
+    <!-- Remove when comments are on START
+    <i class="fa fa-comments"></i>
+    <span class="disqus-comment-count">Comments temporarily disabled</span>
+    Remove when comments are on END -->
+</article> <!-- /post -->
+
+<!-- BLOG POST ADS HERE -->
+
+
+<!-- END BLOG POST ADS -->
+
+
+<nav class="nav-comic-wrapper content-section-lg" role="navigation">
+  <div class="nav-comic nav-left">
+  	<a href="http://blog.dilbert.com/page/2/" ><i class="fa fa-caret-left"></i><span class="nav-comic-text"> Older Posts</span></a>  </div>
+  <div class="nav-comic nav-right"></div>
+</nav>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+    </section><!-- /posts -->
+  </div><!-- /col-xs-8 -->
+
+  <div class="amu-ad-sidebar js-fixed-container">
+
+        <div class="content-section section-sidebar">
+      <form role="search" method="get" class="" action="http://blog.dilbert.com/">
+<div class="input-group">
+  <input type="search" class="form-control" placeholder="Search the blog" value="" name="s" title="Search the blog" required="required" />
+  <span class="input-group-btn">
+    <button class="btn btn-default" type="submit">Search</button>
+  </span>
+</div>
+</form>     </div>
+        <div class="section-sidebar">
+      <h4 class="hdr-sm">Tags</h4>
+      <span class=""><a href="http://blog.dilbert.com/tag/apple/" class="tag-cloud-link tag-link-1184 tag-link-position-1" style="font-size: 26.890625pt;" aria-label="apple (5 items)">apple</a></span> <span class=""><a href="http://blog.dilbert.com/tag/china/" class="tag-cloud-link tag-link-506 tag-link-position-2" style="font-size: 19.15625pt;" aria-label="China (3 items)">China</a></span> <span class=""><a href="http://blog.dilbert.com/tag/climate-change/" class="tag-cloud-link tag-link-488 tag-link-position-3" style="font-size: 34.1953125pt;" aria-label="climate change (8 items)">climate change</a></span> <span class=""><a href="http://blog.dilbert.com/tag/climate-deniers/" class="tag-cloud-link tag-link-536 tag-link-position-4" style="font-size: 14pt;" aria-label="climate deniers (2 items)">climate deniers</a></span> <span class=""><a href="http://blog.dilbert.com/tag/climate-science/" class="tag-cloud-link tag-link-485 tag-link-position-5" style="font-size: 50.09375pt;" aria-label="climate science (20 items)">climate science</a></span> <span class=""><a href="http://blog.dilbert.com/tag/clinton/" class="tag-cloud-link tag-link-362 tag-link-position-6" style="font-size: 75.4453125pt;" aria-label="Clinton (80 items)">Clinton</a></span> <span class=""><a href="http://blog.dilbert.com/tag/clinton2016/" class="tag-cloud-link tag-link-959 tag-link-position-7" style="font-size: 49.234375pt;" aria-label="clinton2016 (19 items)">clinton2016</a></span> <span class=""><a href="http://blog.dilbert.com/tag/cognitive-dissonance/" class="tag-cloud-link tag-link-491 tag-link-position-8" style="font-size: 26.890625pt;" aria-label="cognitive dissonance (5 items)">cognitive dissonance</a></span> <span class=""><a href="http://blog.dilbert.com/tag/cruz/" class="tag-cloud-link tag-link-1058 tag-link-position-9" style="font-size: 19.15625pt;" aria-label="Cruz (3 items)">Cruz</a></span> <span class=""><a href="http://blog.dilbert.com/tag/daesh/" class="tag-cloud-link tag-link-1148 tag-link-position-10" style="font-size: 19.15625pt;" aria-label="daesh (3 items)">daesh</a></span> <span class=""><a href="http://blog.dilbert.com/tag/deathwithdignity/" class="tag-cloud-link tag-link-1235 tag-link-position-11" style="font-size: 19.15625pt;" aria-label="deathwithdignity (3 items)">deathwithdignity</a></span> <span class=""><a href="http://blog.dilbert.com/tag/divorce/" class="tag-cloud-link tag-link-767 tag-link-position-12" style="font-size: 19.15625pt;" aria-label="divorce (3 items)">divorce</a></span> <span class="js-tag-toggle hidden"><a href="http://blog.dilbert.com/tag/economy/" class="tag-cloud-link tag-link-1028 tag-link-position-13" style="font-size: 19.15625pt;" aria-label="Economy (3 items)">Economy</a></span> <span class="js-tag-toggle hidden"><a href="http://blog.dilbert.com/tag/gawker/" class="tag-cloud-link tag-link-926 tag-link-position-14" style="font-size: 19.15625pt;" aria-label="Gawker (3 items)">Gawker</a></span> <span class="js-tag-toggle hidden"><a href="http://blog.dilbert.com/tag/gender/" class="tag-cloud-link tag-link-1133 tag-link-position-15" style="font-size: 26.890625pt;" aria-label="gender (5 items)">gender</a></span> <span class="js-tag-toggle hidden"><a href="http://blog.dilbert.com/tag/general-nonsense/" class="tag-cloud-link tag-link-1664 tag-link-position-16" style="font-size: 124pt;" aria-label="General Nonsense (1,095 items)">General Nonsense</a></span> <span class="js-tag-toggle hidden"><a href="http://blog.dilbert.com/tag/google/" class="tag-cloud-link tag-link-857 tag-link-position-17" style="font-size: 19.15625pt;" aria-label="Google (3 items)">Google</a></span> <span class="js-tag-toggle hidden"><a href="http://blog.dilbert.com/tag/healthcare/" class="tag-cloud-link tag-link-392 tag-link-position-18" style="font-size: 39.78125pt;" aria-label="healthcare (11 items)">healthcare</a></span> <span class="js-tag-toggle hidden"><a href="http://blog.dilbert.com/tag/hillary2016/" class="tag-cloud-link tag-link-1085 tag-link-position-19" style="font-size: 32.046875pt;" aria-label="hillary2016 (7 items)">hillary2016</a></span> <span class="js-tag-toggle hidden"><a href="http://blog.dilbert.com/tag/hillary-clinton/" class="tag-cloud-link tag-link-1016 tag-link-position-20" style="font-size: 38.0625pt;" aria-label="hillary clinton (10 items)">hillary clinton</a></span> <span class="js-tag-toggle hidden"><a href="http://blog.dilbert.com/tag/hypnosis/" class="tag-cloud-link tag-link-668 tag-link-position-21" style="font-size: 38.0625pt;" aria-label="Hypnosis (10 items)">Hypnosis</a></span> <span class="js-tag-toggle hidden"><a href="http://blog.dilbert.com/tag/immigration/" class="tag-cloud-link tag-link-458 tag-link-position-22" style="font-size: 32.046875pt;" aria-label="immigration (7 items)">immigration</a></span> <span class="js-tag-toggle hidden"><a href="http://blog.dilbert.com/tag/influence/" class="tag-cloud-link tag-link-872 tag-link-position-23" style="font-size: 26.890625pt;" aria-label="Influence (5 items)">Influence</a></span> <span class="js-tag-toggle hidden"><a href="http://blog.dilbert.com/tag/isis/" class="tag-cloud-link tag-link-428 tag-link-position-24" style="font-size: 50.953125pt;" aria-label="ISIS (21 items)">ISIS</a></span> <span class="js-tag-toggle hidden"><a href="http://blog.dilbert.com/tag/latest-news/" class="tag-cloud-link tag-link-1667 tag-link-position-25" style="font-size: 44.078125pt;" aria-label="Latest News (14 items)">Latest News</a></span> <span class="js-tag-toggle hidden"><a href="http://blog.dilbert.com/tag/marriage/" class="tag-cloud-link tag-link-173 tag-link-position-26" style="font-size: 23.453125pt;" aria-label="marriage (4 items)">marriage</a></span> <span class="js-tag-toggle hidden"><a href="http://blog.dilbert.com/tag/north-korea/" class="tag-cloud-link tag-link-398 tag-link-position-27" style="font-size: 34.1953125pt;" aria-label="north korea (8 items)">north korea</a></span> <span class="js-tag-toggle hidden"><a href="http://blog.dilbert.com/tag/northkorea/" class="tag-cloud-link tag-link-1673 tag-link-position-28" style="font-size: 19.15625pt;" aria-label="Northkorea (3 items)">Northkorea</a></span> <span class="js-tag-toggle hidden"><a href="http://blog.dilbert.com/tag/obamacare/" class="tag-cloud-link tag-link-389 tag-link-position-29" style="font-size: 29.8984375pt;" aria-label="Obamacare (6 items)">Obamacare</a></span> <span class="js-tag-toggle hidden"><a href="http://blog.dilbert.com/tag/outragism/" class="tag-cloud-link tag-link-1313 tag-link-position-30" style="font-size: 14pt;" aria-label="outragism (2 items)">outragism</a></span> <span class="js-tag-toggle hidden"><a href="http://blog.dilbert.com/tag/persuasion/" class="tag-cloud-link tag-link-617 tag-link-position-31" style="font-size: 42.7890625pt;" aria-label="Persuasion (13 items)">Persuasion</a></span> <span class="js-tag-toggle hidden"><a href="http://blog.dilbert.com/tag/potus/" class="tag-cloud-link tag-link-386 tag-link-position-32" style="font-size: 42.7890625pt;" aria-label="potus (13 items)">potus</a></span> <span class="js-tag-toggle hidden"><a href="http://blog.dilbert.com/tag/robots/" class="tag-cloud-link tag-link-1244 tag-link-position-33" style="font-size: 32.046875pt;" aria-label="robots (7 items)">robots</a></span> <span class="js-tag-toggle hidden"><a href="http://blog.dilbert.com/tag/robotsreadnews/" class="tag-cloud-link tag-link-512 tag-link-position-34" style="font-size: 23.453125pt;" aria-label="RobotsReadNews (4 items)">RobotsReadNews</a></span> <span class="js-tag-toggle hidden"><a href="http://blog.dilbert.com/tag/science/" class="tag-cloud-link tag-link-1283 tag-link-position-35" style="font-size: 19.15625pt;" aria-label="science (3 items)">science</a></span> <span class="js-tag-toggle hidden"><a href="http://blog.dilbert.com/tag/startups/" class="tag-cloud-link tag-link-779 tag-link-position-36" style="font-size: 14pt;" aria-label="startups (2 items)">startups</a></span> <span class="js-tag-toggle hidden"><a href="http://blog.dilbert.com/tag/success/" class="tag-cloud-link tag-link-776 tag-link-position-37" style="font-size: 29.8984375pt;" aria-label="success (6 items)">success</a></span> <span class="js-tag-toggle hidden"><a href="http://blog.dilbert.com/tag/syria/" class="tag-cloud-link tag-link-410 tag-link-position-38" style="font-size: 23.453125pt;" aria-label="Syria (4 items)">Syria</a></span> <span class="js-tag-toggle hidden"><a href="http://blog.dilbert.com/tag/trump/" class="tag-cloud-link tag-link-380 tag-link-position-39" style="font-size: 106.8125pt;" aria-label="Trump (434 items)">Trump</a></span> <span class="js-tag-toggle hidden"><a href="http://blog.dilbert.com/tag/trump-clinton/" class="tag-cloud-link tag-link-866 tag-link-position-40" style="font-size: 29.8984375pt;" aria-label="Trump Clinton (6 items)">Trump Clinton</a></span> <span class="js-tag-toggle hidden"><a href="http://blog.dilbert.com/tag/trumpforpresident/" class="tag-cloud-link tag-link-1316 tag-link-position-41" style="font-size: 14pt;" aria-label="trumpforpresident (2 items)">trumpforpresident</a></span> <span class="js-tag-toggle hidden"><a href="http://blog.dilbert.com/tag/twitter/" class="tag-cloud-link tag-link-500 tag-link-position-42" style="font-size: 23.453125pt;" aria-label="Twitter (4 items)">Twitter</a></span> <span class="js-tag-toggle hidden"><a href="http://blog.dilbert.com/tag/united-airlines/" class="tag-cloud-link tag-link-509 tag-link-position-43" style="font-size: 14pt;" aria-label="united airlines (2 items)">united airlines</a></span> <span class="js-tag-toggle hidden"><a href="http://blog.dilbert.com/tag/whenhub/" class="tag-cloud-link tag-link-566 tag-link-position-44" style="font-size: 53.53125pt;" aria-label="whenhub (24 items)">whenhub</a></span> <span class="js-tag-toggle hidden"><a href="http://blog.dilbert.com/tag/winbigly/" class="tag-cloud-link tag-link-1688 tag-link-position-45" style="font-size: 26.890625pt;" aria-label="winbigly (5 items)">winbigly</a></span> <br><a href="#" class="tag-cloud-link js-tag-toggler">See More +</a>    </div>
+    <div class="js-blog-tower-fixed-no">
+      <div id='tower' class='ad ad-tower ad-static-tower js-ad' data-ad-type="tower"></div>
+      <div class="amu-ad-sidebar-content">
+      </div><!-- /.amu-ad-sidebar-content -->
+    </div>
+  </div><!-- /.amu-ad-sidebar -->
+
+</div><!-- /.amu-main-container -->
+</div><!-- /.container -->
+
+<!-- START SHELF SPACE -->
+<div class="row">
+  <div class="col-sm-12">
+    <div class='shelf-space-container row js_shelf_ads'>
+      <!--     Left-most ad slot     -->
+      <div class="shelf-space-item">
+        <!-- Create new div with unique id by passing in a value for slotId -->
+        <div id='rectangle_left_footer' class='ad ad-rectangle js-ad' data-ad-type="rectangle_left"></div>
+      </div>
+      <!--     House ad slot     -->
+      <div class="shelf-space-item">
+        <div class="Promo_F ad-rectangle" style="height: auto;">
+          <div style="margin: 0; color: #888; font-family: Verdana, sans-serif; width: 300px; display:inline-block; ">
+            <a href="http://astore.amazon.com/ucomicscom/detail/0740777351" target="_new"><img alt="Buy the Dilbert 2.0 book" src="http://dilbert.com/assets/book_ad-4f577f15b10f398a19f8aa823a56c88c.jpg" style="border: 0;"/></a>
+            <a href="http://astore.amazon.com/ucomicscom?_encoding=UTF8&node=86" style="color: #1e89bd;" target="_new">View more books now</a>
+          </div>
+        </div>
+      </div>
+      <!--     Right-most ad slot     -->
+      <div class="shelf-space-item">
+        <div id='rectangle_right_footer' class='ad ad-rectangle js-ad' data-ad-type="rectangle_right"></div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- END SHELF SPACE -->
+
+<footer class="site-footer">
+  <ul class="list-inline pages">
+    <li><p class="small">Dilbert &copy; 2018, Andrews McMeel Syndication</li>
+    <li> | </li>
+    <li id="menu-item-16341" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-16341"><a href="http://dilbert.com?utm_source=dilbert&#038;utm_medium=blog&#038;utm_campaign=footer">Comics</a></li>
+<li id="menu-item-16344" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-16344"><a href="http://blog.dilbert.com/?utm_source=dilbert.com&#038;utm_medium=site&#038;utm_campaign=brand-engagement&#038;utm_content=footer">Blog</a></li>
+<li id="menu-item-16353" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-16353"><a href="http://dilbert.com/search?utm_source=dilbert&#038;utm_medium=blog&#038;utm_campaign=footer">Search</a></li>
+<li id="menu-item-16356" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-16356"><a href="http://blog.dilbert.com/about/">About Scott Adams</a></li>
+<li id="menu-item-16359" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-16359"><a href="http://blog.dilbert.com/contact/">Contact</a></li>
+  </ul>
+  <ul class="list-inline small">
+    <li><a class="link-blended" href="http://feed.dilbert.com/dilbert/daily_strip"><i class='fa fa-rss'></i> Comic </a></li>
+    <li><a class="link-blended" href="http://feed.dilbert.com/dilbert/blog"><i class='fa fa-rss'></i> Blog </a></li>
+    <li><a class="link-blended" href="http://dilbert.com/privacy">Privacy</a></li>
+    <li><a class="link-blended" href="http://dilbert.com/privacy">Cookies</a></li>
+    <li><a class="link-blended" href="http://dilbert.com/terms">Terms</a></li>
+    <li><a class="link-blended" href="http://dilbert.com/infringements">Infringements</a></li>
+  </ul>
+</footer>
+</div>
+
+<link rel='stylesheet' id='mediaelement-css'  href='http://blog.dilbert.com/wp-includes/js/mediaelement/mediaelementplayer-legacy.min.css?ver=4.2.6-78496d1' type='text/css' media='all' />
+<link rel='stylesheet' id='wp-mediaelement-css'  href='http://blog.dilbert.com/wp-includes/js/mediaelement/wp-mediaelement.min.css?ver=4.9.5' type='text/css' media='all' />
+<script type='text/javascript' src='http://blog.dilbert.com/wp-includes/js/wp-embed.min.js?ver=4.9.5'></script>
+<script type='text/javascript' src='http://blog.dilbert.com/wp-content/plugins/powerpress/player.min.js?ver=4.9.5'></script>
+<script type='text/javascript'>
+var mejsL10n = {"language":"en","strings":{"mejs.install-flash":"You are using a browser that does not have Flash player enabled or installed. Please turn on your Flash player plugin or download the latest version from https:\/\/get.adobe.com\/flashplayer\/","mejs.fullscreen-off":"Turn off Fullscreen","mejs.fullscreen-on":"Go Fullscreen","mejs.download-video":"Download Video","mejs.fullscreen":"Fullscreen","mejs.time-jump-forward":["Jump forward 1 second","Jump forward %1 seconds"],"mejs.loop":"Toggle Loop","mejs.play":"Play","mejs.pause":"Pause","mejs.close":"Close","mejs.time-slider":"Time Slider","mejs.time-help-text":"Use Left\/Right Arrow keys to advance one second, Up\/Down arrows to advance ten seconds.","mejs.time-skip-back":["Skip back 1 second","Skip back %1 seconds"],"mejs.captions-subtitles":"Captions\/Subtitles","mejs.captions-chapters":"Chapters","mejs.none":"None","mejs.mute-toggle":"Mute Toggle","mejs.volume-help-text":"Use Up\/Down Arrow keys to increase or decrease volume.","mejs.unmute":"Unmute","mejs.mute":"Mute","mejs.volume-slider":"Volume Slider","mejs.video-player":"Video Player","mejs.audio-player":"Audio Player","mejs.ad-skip":"Skip ad","mejs.ad-skip-info":["Skip in 1 second","Skip in %1 seconds"],"mejs.source-chooser":"Source Chooser","mejs.stop":"Stop","mejs.speed-rate":"Speed Rate","mejs.live-broadcast":"Live Broadcast","mejs.afrikaans":"Afrikaans","mejs.albanian":"Albanian","mejs.arabic":"Arabic","mejs.belarusian":"Belarusian","mejs.bulgarian":"Bulgarian","mejs.catalan":"Catalan","mejs.chinese":"Chinese","mejs.chinese-simplified":"Chinese (Simplified)","mejs.chinese-traditional":"Chinese (Traditional)","mejs.croatian":"Croatian","mejs.czech":"Czech","mejs.danish":"Danish","mejs.dutch":"Dutch","mejs.english":"English","mejs.estonian":"Estonian","mejs.filipino":"Filipino","mejs.finnish":"Finnish","mejs.french":"French","mejs.galician":"Galician","mejs.german":"German","mejs.greek":"Greek","mejs.haitian-creole":"Haitian Creole","mejs.hebrew":"Hebrew","mejs.hindi":"Hindi","mejs.hungarian":"Hungarian","mejs.icelandic":"Icelandic","mejs.indonesian":"Indonesian","mejs.irish":"Irish","mejs.italian":"Italian","mejs.japanese":"Japanese","mejs.korean":"Korean","mejs.latvian":"Latvian","mejs.lithuanian":"Lithuanian","mejs.macedonian":"Macedonian","mejs.malay":"Malay","mejs.maltese":"Maltese","mejs.norwegian":"Norwegian","mejs.persian":"Persian","mejs.polish":"Polish","mejs.portuguese":"Portuguese","mejs.romanian":"Romanian","mejs.russian":"Russian","mejs.serbian":"Serbian","mejs.slovak":"Slovak","mejs.slovenian":"Slovenian","mejs.spanish":"Spanish","mejs.swahili":"Swahili","mejs.swedish":"Swedish","mejs.tagalog":"Tagalog","mejs.thai":"Thai","mejs.turkish":"Turkish","mejs.ukrainian":"Ukrainian","mejs.vietnamese":"Vietnamese","mejs.welsh":"Welsh","mejs.yiddish":"Yiddish"}};
+</script>
+<script type='text/javascript' src='http://blog.dilbert.com/wp-includes/js/mediaelement/mediaelement-and-player.min.js?ver=4.2.6-78496d1'></script>
+<script type='text/javascript' src='http://blog.dilbert.com/wp-includes/js/mediaelement/mediaelement-migrate.min.js?ver=4.9.5'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var _wpmejsSettings = {"pluginPath":"\/wp-includes\/js\/mediaelement\/","classPrefix":"mejs-","stretching":"responsive"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://blog.dilbert.com/wp-includes/js/mediaelement/wp-mediaelement.min.js?ver=4.9.5'></script>
+  <script type="text/javascript">
+    $(function() {
+      $('.js-tag-toggler').on('click', function (e) {
+        if(e.preventDefault) { e.preventDefault(); }
+        else { e.returnValue = false; }
+        $('.js-tag-toggle').toggleClass('hidden');
+        $('.js-tag-toggler').toggleClass('hidden');
+      });
+    });
+  </script>
+</body>
+</html>
