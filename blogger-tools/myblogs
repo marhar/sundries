@@ -1,0 +1,6 @@
+#!/bin/sh
+
+. $HOME/.gapi
+
+curl https://www.googleapis.com/blogger/v3/users/self/blogs?key=$API_KEY
+
