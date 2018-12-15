@@ -7,7 +7,7 @@ import urllib
 import xml.dom.minidom
 from BeautifulSoup import BeautifulSoup
 
-url = 'http://blog.dilbert.com'
+url = 'https://blog.dilbert.com'
 
 def main():
     #html=urllib.urlopen(url).read()
