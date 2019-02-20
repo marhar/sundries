@@ -1,0 +1,11 @@
+#!/bin/bash
+# generate thumbnails for specified stl files
+
+for i in $*; do
+  echo $i
+  T=__tmp__$i
+  b=`basename $i`
+  echo import\(\"$i\"\)\; >$T
+  /Applications/OpenSCAD.app//Contents/MacOS/OpenSCAD -o $b.png --imgsize=200,200 $T
+  rm $T
+done

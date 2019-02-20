@@ -1,0 +1,30 @@
+#!/bin/bash
+# generate an html array of thumbnails suitable for printing.
+
+HDIR=00-thumbs
+test -d $HDIR || mkdir $HDIR
+n=-1
+H=$HDIR/00-catalog.html
+echo >$H '<table>'
+echo >>$H '  <tr>'
+for i in $*; do
+  n=`expr $n + 1`
+  if test $n = 4; then
+      n=0
+      echo >>$H '  </tr>'
+      echo >>$H '  <tr>'
+  fi
+  echo $i
+  D=`bbox.py $i`
+  T=__tmp__$i
+  B=`basename $i .stl`
+  echo import\(\"$i\"\)\; >$T
+  /Applications/OpenSCAD.app//Contents/MacOS/OpenSCAD -o $HDIR/$B.png --imgsize=200,200 $T
+  echo >>$H
+  #echo >>$H '    <td>'$i'<br>'$D'<br><img src="'$B'.png"></td>'
+  echo >>$H '    <td><img src="'$B'.png"><br>'$i'<br>'$D'</td>'
+
+  rm $T
+done
+echo >>$H '  </tr>'
+echo >>$H '</table>'
