@@ -4,7 +4,7 @@
 HDIR=00-thumbs
 test -d $HDIR || mkdir $HDIR
 n=-1
-H=$HDIR/00-catalog.html
+H=$HDIR/00-catalog$1.html
 echo >$H '<table>'
 echo >>$H '  <tr>'
 for i in $*; do
