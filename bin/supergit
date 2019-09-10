@@ -3,6 +3,14 @@
 TOP=$HOME/g
 GITNAME=marhar
 
+bash_command_completion='
+_supergit () {
+    local cur=${COMP_WORDS[COMP_CWORD]}
+    COMPREPLY=( $(compgen -W "$(supergit commands)" -- $cur) )
+}
+complete -F _supergit supergit
+'
+
 help="
 supergit runs across multiple git depots.
 configure the TOP variable to be the directory where you check out repos.
@@ -28,6 +36,7 @@ or things like this, if you want to set parameters in each repo and
 not in your global git config:
     supergit config --global color.ui false
 "
+
 # push -n
 # GIT_ASKPASS=true supergit push -n
 
@@ -42,6 +51,10 @@ elif test $1. = help.; then
     cat <<.
 $help
 .
+
+#-----------------------------------------------------------------------
+elif test $1. = commands.; then
+    echo help attention needspush notmine list sow commands
 
 #-----------------------------------------------------------------------
 elif test $1. = notmine.; then
