@@ -1,0 +1,6 @@
+#!/bin/sh
+# generates script to generate corresponding STL files for all SCAD files.
+
+for i in $(find . -name '*.scad'|sort); do
+  echo /Applications/OpenSCAD.app/Contents/MacOS/OpenSCAD -o $(echo $i|sed 's/scad$/stl/') $i
+done
