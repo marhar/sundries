@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# add this somewhere to get short list of attention seekers
+# supergit attention -q|grep -v up.to.date|awk '{print $1}'|sort -u
+
 TOP=$HOME/g
 GITNAME=marhar
 
