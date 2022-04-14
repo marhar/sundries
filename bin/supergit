@@ -84,6 +84,8 @@ elif test $1. = attention.; then
     # attention -q for quieter mode
     if test $2. = -q.; then
         (supergit status -s;supergit needspush)|sort|grep -v ==========
+    elif test $2. = -qq.; then
+        supergit attention -q|grep -v up.to.date|awk '{print $1}'|sort -u
     else
         (supergit status -s;supergit needspush)|sort
     fi
