@@ -1,0 +1,18 @@
+#!/bin/bash
+TOP=$(git rev-parse --show-toplevel)
+THEIRS=/tmp/THEIRS.$$
+FLIST=/tmp/flist.$$
+
+trap 'rm -rf $THEIRS $FLIST' 0
+
+nfiles=$(git diff --name-only HEAD | wc -l)
+
+if [[ $nfiles -eq 0 ]] ; then
+	echo no differences
+	exit
+fi
+
+git diff --name-only HEAD >$FLIST
+mkdir $THEIRS
+(cd $TOP; tar -T $FLIST -cf -) | (cd $THEIRS; tar xvf -)
+meld --auto-compare -output=$TOP $THEIRS $TOP
