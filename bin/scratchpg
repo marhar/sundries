@@ -1,0 +1,5 @@
+D=$(mktemp -d /tmp/scratchpg.XXXXXX)
+trap "rm -rf $D" 0
+
+PGPASSWORD=ias initdb --username=postgres $D
+postgres -D $D
