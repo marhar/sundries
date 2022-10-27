@@ -1,0 +1,52 @@
+Certificate:
+    Data:
+        Version: 1 (0x0)
+        Serial Number:
+            1a:df:90:06:c0:a1:4d:33:f1:ca:82:6b:18:03:69:cf:e6:a1:48:df
+        Signature Algorithm: NULL
+        Issuer: CN = dogbert
+        Validity
+            Not Before: Oct  1 04:15:05 2022 GMT
+            Not After : Oct  1 04:15:05 2023 GMT
+        Subject: CN = dogbert
+        Subject Public Key Info:
+            Public Key Algorithm: rsaEncryption
+                RSA Public-Key: (2048 bit)
+                Modulus:
+                    00:a1:51:df:65:ff:f6:43:c0:0a:07:4e:99:9d:80:
+                    27:84:a3:bd:5b:62:35:29:aa:f7:f5:46:43:eb:12:
+                    cb:ea:91:03:e7:fa:60:3d:ec:41:7e:a5:93:23:78:
+                    03:ec:c8:f5:70:a6:c7:95:ff:43:7b:68:8c:d3:cf:
+                    e7:1d:9c:ca:4d:1b:e7:e9:30:42:d8:b2:be:72:a4:
+                    ea:7c:44:db:81:d0:42:9f:03:0f:e8:54:c5:cd:6f:
+                    fc:90:a1:5d:61:66:aa:52:4d:df:f3:f7:2b:42:af:
+                    4e:43:3a:bc:6a:f4:2d:fc:be:52:a3:2b:d0:be:10:
+                    3f:5b:cf:d0:75:f1:91:5a:58:0b:e5:92:90:43:ec:
+                    e4:5e:73:eb:0d:7d:85:5c:60:7e:c6:8e:a7:9d:43:
+                    d4:f2:46:66:82:e9:06:f3:60:b8:69:0a:a4:5e:76:
+                    4e:02:0f:7c:d5:72:dc:69:7f:8e:49:d7:5b:37:e3:
+                    d2:21:eb:a5:cd:53:70:23:20:f8:74:c4:b9:6a:e3:
+                    99:18:32:79:e2:de:0e:61:c3:52:50:84:ae:5e:63:
+                    93:f9:a8:fd:e8:0b:1d:97:7e:fa:c4:71:c2:cc:f7:
+                    26:05:07:6a:c3:70:6a:9b:a0:89:bc:ce:d3:60:19:
+                    b4:a6:97:0f:e6:b6:be:c4:0b:46:66:a4:b1:12:ad:
+                    2d:2b
+                Exponent: 65537 (0x10001)
+    Signature Algorithm: NULL
+-----BEGIN CERTIFICATE-----
+MIICqzCCAZMCFFQKnP6FIuvKs9N0x+PaPmumQGy7MA0GCSqGSIb3DQEBCwUAMBIx
+EDAOBgNVBAMMB2RvZ2JlcnQwHhcNMjIxMDAxMDQxNTA1WhcNMjMxMDAxMDQxNTA1
+WjASMRAwDgYDVQQDDAdkb2diZXJ0MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIB
+CgKCAQEAoVHfZf/2Q8AKB06ZnYAnhKO9W2I1Kar39UZD6xLL6pED5/pgPexBfqWT
+I3gD7Mj1cKbHlf9De2iM08/nHZzKTRvn6TBC2LK+cqTqfETbgdBCnwMP6FTFzW/8
+kKFdYWaqUk3f8/crQq9OQzq8avQt/L5SoyvQvhA/W8/QdfGRWlgL5ZKQQ+zkXnPr
+DX2FXGB+xo6nnUPU8kZmgukG82C4aQqkXnZOAg981XLcaX+OSddbN+PSIeulzVNw
+IyD4dMS5auOZGDJ54t4OYcNSUISuXmOT+aj96Asdl376xHHCzPcmBQdqw3Bqm6CJ
+vM7TYBm0ppcP5ra+xAtGZqSxEq0tKwIDAQABMA0GCSqGSIb3DQEBCwUAA4IBAQAI
+spnZgSMaRGLrbEERK20azu+1dQCc0j6ekITmyKKSb7HueQy6JUPnEGYZiZT+rHau
+1jwoF6ySJ1ZUr91IdJylC+UOQBevCQXIEAfTwxxMgt9ohPEqE93vTo4iKBcaqpL7
+sm6zmYDbuQ1g5cmDmKaKqSkqtHCx87ZP62x8g1yizVCbHNcqJ1ENUi1I3LgkxKGJ
+aL9ipzG0wxGLbHyXRmFlEJSyza4mBUSpcGQr1ouWHkbjMVreC992yNRLwmeEm/+6
+w3AIQBWENL8rkorztYG9mVuX/jcall4k6sggsxvVBOjR/sX73vbDTuLExPTGTXrm
+CQ15+EmGe/K2rYRyAdYt
+-----END CERTIFICATE-----

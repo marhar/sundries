@@ -1,0 +1,58 @@
+openssl req -new -nodes -text -out 1root.csr -keyout 1root.key -subj "/CN=1root.example.com"
+openssl req -new -nodes -text -out 2inte.csr -keyout 2inte.key -subj "/CN=2inte.example.com"
+openssl req -new -nodes -text -out 3inte.csr -keyout 3inte.key -subj "/CN=3inte.example.com"
+openssl req -new -nodes -text -out 4serv.csr -keyout 4serv.key -subj "/CN=4serv.example.com"
+
+    # all csr commands are same format
+    # no -days parm
+    # can be generated in any order.  "links" not yet part of "chain".
+
+openssl x509 -req -in 1root.csr -out 1root.crt -text -days 365 -signkey 1root.key                             -extfile /etc/ssl/openssl.cnf -extensions v3_ca
+openssl x509 -req -in 2inte.csr -out 2inte.crt -text -days  30 -CA 1root.crt -CAkey 1root.key -CAcreateserial -extfile /etc/ssl/openssl.cnf -extensions v3_ca
+openssl x509 -req -in 3inte.csr -out 3inte.crt -text -days  30 -CA 2inte.crt -CAkey 2inte.key -CAcreateserial -extfile /etc/ssl/openssl.cnf -extensions v3_ca
+openssl x509 -req -in 4serv.csr -out 4serv.crt -text -days   7 -CA 3inte.crt -CAkey 3inte.key -CAcreateserial
+
+    # "issuing a certificate" == "generating a cert file".
+    # root is self-signing. no CA, e.g. no previous cert. input and output only from root (1root.csr, 1root.key -> 1root.crt)
+    # rest of chain has same pattern. CA is previous cert. (current.csr, previous.crt, previous.key -> current.cert)
+
+    # days parameter always given, because certs have expiration dates.
+    # common for higher-level certs to have longer expiry.
+
+    # question Who no extensions on final link?
+
+openssl x509 -req -in 1root.csr -out 1root.pem -days 365 -signkey 1root.key                             -extfile /etc/ssl/openssl.cnf -extensions v3_ca
+openssl x509 -req -in 2inte.csr -out 2inte.pem -days  30 -CA 1root.pem -CAkey 1root.key -CAcreateserial -extfile /etc/ssl/openssl.cnf -extensions v3_ca
+openssl x509 -req -in 3inte.csr -out 3inte.pem -days  30 -CA 2inte.pem -CAkey 2inte.key -CAcreateserial -extfile /etc/ssl/openssl.cnf -extensions v3_ca
+openssl x509 -req -in 4serv.csr -out 4serv.pem -days   7 -CA 3inte.pem -CAkey 3inte.key -CAcreateserial -extfile /etc/ssl/openssl.cnf -extensions v3_ca
+cat 4serv.pem 3inte.pem 2inte.pem 1root.pem >all1.pem
+openssl verify -verbose -CAfile 1root.pem all1.pem
+
+---
+
+openssl req -new -nodes -out 1root.csr -keyout 1root.key -subj "/CN=1root.example.com"
+openssl req -new -nodes -out 2inte.csr -keyout 2inte.key -subj "/CN=2inte.example.com"
+openssl req -new -nodes -out 3inte.csr -keyout 3inte.key -subj "/CN=3inte.example.com"
+openssl req -new -nodes -out 4serv.csr -keyout 4serv.key -subj "/CN=4serv.example.com"
+
+openssl x509 -req -in 1root.csr -out 1root.pem -days 365 -signkey 1root.key
+openssl x509 -req -in 2inte.csr -out 2inte.pem -days  30 -CA 1root.pem -CAkey 1root.key
+openssl x509 -req -in 3inte.csr -out 3inte.pem -days  30 -CA 2inte.pem -CAkey 2inte.key
+openssl x509 -req -in 4serv.csr -out 4serv.pem -days   7 -CA 3inte.pem -CAkey 3inte.key
+
+cat 1root.pem 2inte.pem 3inte.pem 4serv.pem >all.pem
+openssl verify -verbose -CAfile 1root.pem all.pem
+
+---
+
+openssl req -new -nodes -out 1root.csr -keyout 1root.key -subj "/CN=dogbert.local"
+openssl req -new -nodes -out 2inte.csr -keyout 2inte.key -subj "/CN=dogbert.local"
+openssl req -new -nodes -out 3inte.csr -keyout 3inte.key -subj "/CN=dogbert.local"
+openssl req -new -nodes -out 4serv.csr -keyout 4serv.key -subj "/CN=dogbert.local"
+
+openssl x509 -req -in 1root.csr -out 1root.pem -days 365 -signkey 1root.key                             -extfile /etc/ssl/openssl.cnf -extensions v3_ca
+openssl x509 -req -in 2inte.csr -out 2inte.pem -days  30 -CA 1root.pem -CAkey 1root.key -CAcreateserial -extfile /etc/ssl/openssl.cnf -extensions v3_ca
+openssl x509 -req -in 3inte.csr -out 3inte.pem -days  30 -CA 2inte.pem -CAkey 2inte.key -CAcreateserial -extfile /etc/ssl/openssl.cnf -extensions v3_ca
+openssl x509 -req -in 4serv.csr -out 4serv.pem -days   7 -CA 3inte.pem -CAkey 3inte.key -CAcreateserial -extfile /etc/ssl/openssl.cnf -extensions v3_ca
+cat 4serv.pem 3inte.pem 2inte.pem 1root.pem >all1.pem
+openssl verify -verbose -CAfile 1root.pem all1.pem

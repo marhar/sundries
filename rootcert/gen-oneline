@@ -1,0 +1,7 @@
+openssl req -new -nodes -text -out root.csr -keyout root.key -subj "/CN=root.markharrison.net"
+openssl x509 -req -in root.csr -text -days 3650 -extfile /etc/ssl/openssl.cnf -extensions v3_ca -signkey root.key -out root.crt
+openssl req -new -nodes -text -out intermediate.csr -keyout intermediate.key -subj "/CN=intermediate.markharrison.net"
+openssl x509 -req -in intermediate.csr -text -days 1825 -extfile /etc/ssl/openssl.cnf -extensions v3_ca -CA root.crt -CAkey root.key -CAcreateserial -out intermediate.crt
+openssl req -new -nodes -text -out server.csr -keyout server.key -subj "/CN=server.markharrison.net"
+openssl x509 -req -in server.csr -text -days 365 -CA intermediate.crt -CAkey intermediate.key -CAcreateserial -out server.crt
+
